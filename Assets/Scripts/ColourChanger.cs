@@ -12,6 +12,7 @@ public class ColourChanger : MonoBehaviour {
     public Color colourMagenta;
     public Color colourYellow;
     public Color colourPink;
+    public bool cyan, magenta, yellow, pink;
 
     // Use this for initialization
     void Start ()
@@ -67,7 +68,33 @@ public class ColourChanger : MonoBehaviour {
     {
         if(collider.tag == "Player")
         {
-            SetRandomColour(collider);
+            if (cyan || magenta || yellow || pink)
+            {
+                if (cyan)
+                {
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Cyan";
+                    sr.color = colourCyan;
+                }
+                else if (magenta)
+                {
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Magenta";
+                    sr.color = colourMagenta;
+                }
+                else if (yellow)
+                {
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Yellow";
+                    sr.color = colourYellow;
+                }
+                else if (cyan)
+                {
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Pink";
+                    sr.color = colourPink;
+                }
+            }
+            else
+            {
+                SetRandomColour(collider);
+            }
             Destroy(gameObject);
         }
     }
