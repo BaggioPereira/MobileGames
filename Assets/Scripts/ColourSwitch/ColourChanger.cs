@@ -17,8 +17,8 @@ public class ColourChanger : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        
-	}
+        Random.InitState((int)System.DateTime.Now.Ticks);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -26,7 +26,7 @@ public class ColourChanger : MonoBehaviour {
 		
 	}
 
-    void SetRandomColour(Collider2D collider)
+    public void SetRandomColour(Collider2D collider)
     {
         
         int index = Random.Range(0, 4);
@@ -68,8 +68,10 @@ public class ColourChanger : MonoBehaviour {
     {
         if(collider.tag == "Player")
         {
+            sr = collider.gameObject.GetComponent<SpriteRenderer>();
             if (cyan || magenta || yellow || pink)
             {
+
                 if (cyan)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Cyan";

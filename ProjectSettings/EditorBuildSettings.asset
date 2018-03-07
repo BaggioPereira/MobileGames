@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Color Switch.unity
     guid: 1a61b801091f4a242a73b2e5613ed25d
+  - enabled: 1
+    path: Assets/Scenes/Colour Switch Flappy.unity
+    guid: 81577802921c69c4ab0721b8e9555902

@@ -180,6 +180,8 @@ MonoBehaviour:
   jumpForce: 5
   rb: {fileID: 412175936}
   currentColour: 
+  score: 0
+  text: {fileID: 0}
 --- !u!212 &412175938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -490,7 +492,7 @@ MonoBehaviour:
   colourYellow: {r: 0.96470594, g: 0.8745099, b: 0.054901965, a: 1}
   colourPink: {r: 0.98823535, g: 0.011764707, b: 0.5019608, a: 1}
   cyan: 0
-  magenta: 0
+  magenta: 1
   yellow: 0
   pink: 0
 --- !u!58 &1501666640

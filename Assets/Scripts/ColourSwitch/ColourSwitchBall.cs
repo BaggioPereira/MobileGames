@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ColourSwitchBall : MonoBehaviour {
 
     public float jumpForce = 10.0f;
-
-    int colourIndex = 0;
 
     public Rigidbody2D rb;
 
     public string currentColour;
     
     private Vector2 touchOrigin = -Vector2.one;
+
+    public float score = 0;
+
+    public Text text;
+
+    public bool flappy;
 
     // Use this for initialization
     void Start ()
@@ -62,7 +67,18 @@ public class ColourSwitchBall : MonoBehaviour {
 
         if (collider.tag != currentColour)
         {
-            SceneManager.LoadScene("Color Switch");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name.ToString(), LoadSceneMode.Single);
+        }
+
+        if (collider.tag == currentColour)
+        {
+            score++;
+            text.text = "Score : " + score;
+            if (flappy)
+            {
+                ColourChanger changer = FindObjectOfType<ColourChanger>();
+                changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
+            }
         }
 
     }
