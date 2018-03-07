@@ -65,7 +65,7 @@ public class ColourSwitchBall : MonoBehaviour {
 
         if (collider.tag != currentColour)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name.ToString(), LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
 
         if (collider.tag == currentColour)
