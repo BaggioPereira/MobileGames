@@ -12,6 +12,7 @@ TagManager:
   - Base
   - Brick
   - FlappyLines
+  - Death
   layers:
   - Default
   - TransparentFX

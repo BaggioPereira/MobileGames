@@ -20,10 +20,12 @@ public class ColourSwitchBall : MonoBehaviour {
 
     public bool flappy;
 
+    BackButton back;
+
     // Use this for initialization
     void Start ()
     {
-        Time.timeScale = 0;
+        back = FindObjectOfType<BackButton>();
 	}
 
     // Update is called once per frame
@@ -31,8 +33,9 @@ public class ColourSwitchBall : MonoBehaviour {
     {
 		if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
-            if (Time.timeScale < 1)
-                Time.timeScale = 1;
+            if(!back.pause)
+                if (Time.timeScale < 1)
+                    Time.timeScale = 1;
             rb.velocity = Vector2.up * jumpForce;
         }
 
@@ -44,8 +47,9 @@ public class ColourSwitchBall : MonoBehaviour {
             {
                 case TouchPhase.Began:
                     touchOrigin = myTouch.position;
-                    if(Time.timeScale < 1)
-                        Time.timeScale = 1;
+                    if(!back.pause)
+                        if(Time.timeScale < 1)
+                            Time.timeScale = 1;
                     break;
 
                 case TouchPhase.Ended:
@@ -65,7 +69,10 @@ public class ColourSwitchBall : MonoBehaviour {
 
         if (collider.tag != currentColour)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            Time.timeScale = 0;
+            back.pause = true;
+            Destroy(gameObject);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
 
         if (collider.tag == currentColour)

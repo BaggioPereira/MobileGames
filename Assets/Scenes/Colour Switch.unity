@@ -182,6 +182,7 @@ MonoBehaviour:
   currentColour: 
   score: 0
   text: {fileID: 0}
+  flappy: 0
 --- !u!212 &412175938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -469,6 +470,7 @@ GameObject:
   - component: {fileID: 1501666641}
   - component: {fileID: 1501666640}
   - component: {fileID: 1501666639}
+  - component: {fileID: 1501666643}
   m_Layer: 0
   m_Name: StartColourChanger
   m_TagString: ColourChanger
@@ -567,6 +569,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501666643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501666638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb968e3baa750df4da97483caae5871c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1608715938
 Prefab:
   m_ObjectHideFlags: 0
