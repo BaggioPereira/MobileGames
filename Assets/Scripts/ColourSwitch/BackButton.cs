@@ -26,7 +26,8 @@ public class BackButton : MonoBehaviour {
             {
                 Application.Quit();
             }
-            if(sceneName == "Colour Switch Flappy")
+
+            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch")
             {
                 if (!pause && GameObject.Find("Player") != null)
                 {

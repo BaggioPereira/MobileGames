@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114021451222582786}
   m_Layer: 0
   m_Name: SmallCircle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  rotationCounter: 0
+  pingpong: 0
   reverse: 0
 --- !u!212 &212349399673984754
 SpriteRenderer:

@@ -6,17 +6,30 @@ public class FollowPlayer : MonoBehaviour {
 
     public Transform player;
 
+    GameObject[] pastObstacles;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        pastObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(player.position.y > transform.position.y)
+        pastObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        if (GameObject.Find("Player") != null)
         {
-            transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
+            if (player.position.y > transform.position.y)
+            {
+                transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
+            }
+        }
+
+        for(int i = 0; i < pastObstacles.Length; i++)
+        {
+            if (pastObstacles[i].transform.position.y < transform.position.y -10f)
+                Destroy(pastObstacles[i]);
         }
 	}
 }

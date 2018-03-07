@@ -12,6 +12,7 @@ public class FlappyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Time.timeScale = 0;
         Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
         obstacles = GameObject.FindGameObjectsWithTag("FlappyLines");

@@ -13,6 +13,7 @@ TagManager:
   - Brick
   - FlappyLines
   - Death
+  - Obstacle
   layers:
   - Default
   - TransparentFX
