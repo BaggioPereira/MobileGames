@@ -23,7 +23,7 @@ public class ColourSwitchBall : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        
+        Time.timeScale = 0;
 	}
 
     // Update is called once per frame
@@ -31,6 +31,8 @@ public class ColourSwitchBall : MonoBehaviour {
     {
 		if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
+            if (Time.timeScale < 1)
+                Time.timeScale = 1;
             rb.velocity = Vector2.up * jumpForce;
         }
 
@@ -42,6 +44,8 @@ public class ColourSwitchBall : MonoBehaviour {
             {
                 case TouchPhase.Began:
                     touchOrigin = myTouch.position;
+                    if(Time.timeScale < 1)
+                        Time.timeScale = 1;
                     break;
 
                 case TouchPhase.Ended:
@@ -54,16 +58,10 @@ public class ColourSwitchBall : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Base")
+        if(collider.tag == "Base" || collider.tag == "ColourChanger")
         {
             return;
         }
-
-        if (collider.tag == "ColourChanger")
-        {
-            return;
-        }
-
 
         if (collider.tag != currentColour)
         {

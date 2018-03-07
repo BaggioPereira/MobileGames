@@ -2488,6 +2488,11 @@ Prefab:
       propertyPath: text
       value: 
       objectReference: {fileID: 396075626}
+    - target: {fileID: 114438540151668008, guid: 30a564190f3548a4687cb76d029b2605,
+        type: 2}
+      propertyPath: flappy
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30a564190f3548a4687cb76d029b2605, type: 2}
   m_IsPrefabParent: 0
