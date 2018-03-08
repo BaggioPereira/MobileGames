@@ -27,9 +27,9 @@ public class BackButton : MonoBehaviour {
                 Application.Quit();
             }
 
-            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch")
+            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Snake")
             {
-                if (!pause && GameObject.Find("Player") != null)
+                if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
                 {
                     pausePanel.SetActive(true);
                     pause = !pause;
@@ -38,7 +38,7 @@ public class BackButton : MonoBehaviour {
             }
         }
 
-        else if(pause && GameObject.Find("Player") == null)
+        else if(pause && GameObject.FindGameObjectWithTag("Player") == null)
         {
             gameOverPanel.SetActive(true);
         }
@@ -59,6 +59,11 @@ public class BackButton : MonoBehaviour {
         SceneManager.LoadScene("Colour Switch Flappy", LoadSceneMode.Single);
     }
 
+    public void Snake()
+    {
+        SceneManager.LoadScene("Colour Switch Snake", LoadSceneMode.Single);
+    }
+
     public void Resume()
     {
         pausePanel.SetActive(false);
@@ -73,6 +78,10 @@ public class BackButton : MonoBehaviour {
 
     public void Quit()
     {
-        SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+        if (SceneManager.GetActiveScene().name == "Colour Switch Menu")
+            Application.Quit();
+
+        else
+            SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
     }
 }

@@ -5,27 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Menu.unity
-    guid: 8b5cb66f60ae9d54d8b406ffdcd7c07f
-  - enabled: 0
-    path: Assets/Scenes/SnakeMenu.unity
-    guid: 46a7dc60e89656145a2069a06e173d77
-  - enabled: 0
-    path: Assets/Scenes/BasketBallMenu.unity
-    guid: a658e960dddeda84aa3ed48d4f390c9a
-  - enabled: 0
-    path: Assets/Scenes/BreakOutMenu.unity
-    guid: d12201a2d2e82b344af5aaf349bef9d0
-  - enabled: 0
-    path: Assets/Scenes/FlappyBirdMenu.unity
-    guid: f2bb4d788e83fe94f8b08ee64ae81a43
-  - enabled: 0
-    path: Assets/Scenes/Snake.unity
-    guid: 799eabb893853384d828d68d4553e774
-  - enabled: 0
-    path: Assets/Game.unity
-    guid: 9aff9f0c59e5fa54ca6f8dba75181126
   - enabled: 1
     path: Assets/Scenes/Colour Switch Menu.unity
     guid: b78436aceda95674d99c8f31eef13cd8
@@ -38,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Colour Switch Flappy.unity
     guid: 81577802921c69c4ab0721b8e9555902
+  - enabled: 1
+    path: Assets/Scenes/Colour Switch Snake.unity
+    guid: 799eabb893853384d828d68d4553e774

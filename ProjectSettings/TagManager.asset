@@ -15,6 +15,7 @@ TagManager:
   - Death
   - Obstacle
   - Point
+  - Food
   layers:
   - Default
   - TransparentFX

@@ -9,18 +9,28 @@ public class Snake : MonoBehaviour {
 
     Vector2 direction = Vector2.right;
     List<Transform> tail = new List<Transform>();
-    bool ate = false;
 
-    public GameSelection gameSel;
-    public GameObject gameover;
+    [HideInInspector]
+    public bool ate = false;
+
+    BackButton back;
 
     public GameObject tailPrefab;
     private Vector2 touchOrigin = -Vector2.one;
+    public string currentColour;
+
+    public Color[] colours;
+    public Text text;
+    int score = 0;
 
     // Use this for initialization
     void Start ()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
         Time.timeScale = 1;
+        back = FindObjectOfType<BackButton>();
+        SnakeColourChange();
         InvokeRepeating("Move", 0.3f, 0.3f);
 	}
 	
@@ -38,10 +48,7 @@ public class Snake : MonoBehaviour {
                     break;
 
                 case TouchPhase.Moved:
-                    if (gameSel.pause == false)
-                    {
-                        SwipeDirection(touchOrigin, myTouch.position);
-                    }
+                    SwipeDirection(touchOrigin, myTouch.position);
                     break;
 
                 case TouchPhase.Ended:
@@ -51,17 +58,14 @@ public class Snake : MonoBehaviour {
         }
 
         // Move in a new Direction?
-        if (gameSel.pause == false)
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
-                direction = Vector2.right;
-            else if (Input.GetKey(KeyCode.DownArrow))
-                direction = Vector2.down;    // '-up' means 'down'
-            else if (Input.GetKey(KeyCode.LeftArrow))
-                direction = Vector2.left; // '-right' means 'left'
-            else if (Input.GetKey(KeyCode.UpArrow))
-                direction = Vector2.up;
-        }
+        if (Input.GetKey(KeyCode.RightArrow))
+            direction = Vector2.right;
+        else if (Input.GetKey(KeyCode.DownArrow))
+            direction = Vector2.down;    // '-up' means 'down'
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            direction = Vector2.left; // '-right' means 'left'
+        else if (Input.GetKey(KeyCode.UpArrow))
+            direction = Vector2.up;
     }
 
     void Move()
@@ -88,14 +92,28 @@ public class Snake : MonoBehaviour {
     {
         if(collision.name.StartsWith("FoodPrefab"))
         {
-            ate = true;
-            Destroy(collision.gameObject);
+            if (collision.tag == currentColour)
+            {
+                ate = true;
+                score++;
+                text.text = "Score : " + score;
+                Destroy(collision.gameObject);
+                SnakeColourChange();
+            }
+
+            else
+            {
+                Time.timeScale = 0;
+                back.pause = true;
+                Destroy(gameObject);
+            }
         }
 
-        else if(collision.name.Contains("Border"))
+        else if(collision.name.Contains("Border") || collision.name.Contains("Tail"))
         {
             Time.timeScale = 0;
-            gameover.SetActive(true);
+            back.pause = true;
+            Destroy(gameObject);
             //SceneManager.LoadScene("Snake");
         }
     }
@@ -153,5 +171,19 @@ public class Snake : MonoBehaviour {
                 }
             }
         }
+    }
+
+    void SnakeColourChange()
+    {
+        int colour = Random.Range(0, colours.Length);
+        gameObject.GetComponent<Renderer>().material.color = colours[colour];
+        if (colour == 0)
+            currentColour = "Cyan";
+        if (colour == 1)
+            currentColour = "Yellow";
+        if (colour == 2)
+            currentColour = "Pink";
+        if (colour == 3)
+            currentColour = "Magenta";
     }
 }
