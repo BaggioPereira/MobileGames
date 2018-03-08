@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class ClassicManager : MonoBehaviour {
 
-    public GameObject[] obstacles;
-    GameObject[] obstaclesCount;
+    public GameObject[] obstaclePrefabs;
+    GameObject[] obstacles, changers;
+    int max = 0;
     public int maxObstacles;
     // Use this for initialization
     void Start ()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Time.timeScale = 0;
-        Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
-        obstaclesCount = GameObject.FindGameObjectsWithTag("Obstacle");
-        if (obstaclesCount.Length < maxObstacles)
+        Screen.orientation = UnityEngine.ScreenOrientation.Portrait;
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        if(obstacles.Length < maxObstacles)
         {
-            int obstacleSelected = Random.Range(0, obstacles.Length);
-            obstaclesCount = GameObject.FindGameObjectsWithTag("Obstacle");
-            Vector2 lastObstacle = new Vector2(0, obstaclesCount[0].transform.position.y + 5f);
-            Instantiate(obstacles[obstacleSelected], lastObstacle, Quaternion.identity);
+            obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 5f);
+            int choice = Random.Range(0, obstaclePrefabs.Length);
+            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
         }
         InvokeRepeating("CreateNewObstacle", 0, 1);
     }
 
     void CreateNewObstacle()
     {
-        obstaclesCount = GameObject.FindGameObjectsWithTag("Obstacle");
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         if (obstacles.Length < maxObstacles)
         {
-            int obstacleSelected = Random.Range(0, obstacles.Length);
-            Vector2 lastObstacle = new Vector2(0, obstaclesCount[obstaclesCount.Length - 1].transform.position.y + 5f);
-            Instantiate(obstacles[obstacleSelected], lastObstacle, Quaternion.identity);
+            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 5f);
+            int choice = Random.Range(0, obstaclePrefabs.Length);
+            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
         }
     }
 }

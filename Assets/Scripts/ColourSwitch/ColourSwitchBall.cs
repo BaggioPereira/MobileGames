@@ -67,6 +67,14 @@ public class ColourSwitchBall : MonoBehaviour {
             return;
         }
 
+        if (collider.tag == "Point")
+        {
+            score++;
+            text.text = "Score : " + score;
+            Destroy(collider.gameObject);
+            return;
+        }
+
         if (collider.tag != currentColour)
         {
             Time.timeScale = 0;
@@ -77,14 +85,14 @@ public class ColourSwitchBall : MonoBehaviour {
 
         if (collider.tag == currentColour)
         {
-            score++;
-            text.text = "Score : " + score;
+            
             if (flappy)
             {
                 ColourChanger changer = FindObjectOfType<ColourChanger>();
                 changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
+                score++;
+                text.text = "Score : " + score;
             }
         }
-
     }
 }
