@@ -12,6 +12,8 @@ public class BounceManager : MonoBehaviour {
     public float score = 0;
 
     public Text text;
+
+    float width;
     // Use this for initialization
     void Start ()
     {
@@ -19,6 +21,7 @@ public class BounceManager : MonoBehaviour {
         back = FindObjectOfType<BackButton>();
         if (InitalChanger != null)
             Time.timeScale = 0;
+        width = Screen.width;
     }
 	
 	// Update is called once per frame
@@ -29,8 +32,13 @@ public class BounceManager : MonoBehaviour {
             if (!back.pause)
                 if (Time.timeScale < 1)
                     Time.timeScale = 1;
-            if(!back.pause)
-                 Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+            if (!back.pause)
+            {
+                if (Input.mousePosition.x > width / 2)
+                    Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+                else
+                    Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
+            }
         }
 
         if (Input.touchCount > 0)
@@ -47,8 +55,13 @@ public class BounceManager : MonoBehaviour {
                     break;
 
                 case TouchPhase.Ended:
-                    if(!back.pause)
-                        Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+                    if (!back.pause)
+                    {
+                        if (touchOrigin.x > width / 2)
+                            Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+                        else
+                            Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
+                    }
                     break;
             }
 
