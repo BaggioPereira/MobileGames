@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour {
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool pause = false;
     public GameObject pausePanel, gameOverPanel;
 
@@ -27,7 +27,7 @@ public class BackButton : MonoBehaviour {
                 Application.Quit();
             }
 
-            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Snake")
+            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce")
             {
                 if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
                 {
@@ -74,6 +74,8 @@ public class BackButton : MonoBehaviour {
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        if (SceneManager.GetActiveScene().name == "Colour Switch Bounce")
+            Time.timeScale = 1;
     }
 
     public void Quit()

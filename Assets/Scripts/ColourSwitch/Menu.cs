@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class Menu : MonoBehaviour {
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         if(SceneManager.GetActiveScene().name != "Colour Switch")
             Time.timeScale = 1;

@@ -173,7 +173,7 @@ public class Snake : MonoBehaviour {
         }
     }
 
-    void SnakeColourChange()
+    public void SnakeColourChange()
     {
         int colour = Random.Range(0, colours.Length);
         gameObject.GetComponent<Renderer>().material.color = colours[colour];

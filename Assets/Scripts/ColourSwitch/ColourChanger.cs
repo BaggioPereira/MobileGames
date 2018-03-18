@@ -87,7 +87,7 @@ public class ColourChanger : MonoBehaviour {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Yellow";
                     sr.color = colourYellow;
                 }
-                else if (cyan)
+                else if (pink)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Pink";
                     sr.color = colourPink;

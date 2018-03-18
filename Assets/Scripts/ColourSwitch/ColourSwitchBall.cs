@@ -19,8 +19,11 @@ public class ColourSwitchBall : MonoBehaviour {
     public Text text;
 
     public bool flappy;
+    public bool pingpong;
+    public bool bounce;
 
     BackButton back;
+    public float direction = 0.25f;
 
     // Use this for initialization
     void Start ()
@@ -31,38 +34,54 @@ public class ColourSwitchBall : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        if (bounce)
         {
-            if(!back.pause)
-                if (Time.timeScale < 1)
-                    Time.timeScale = 1;
-            rb.velocity = Vector2.up * jumpForce;
+
         }
 
-        if (Input.touchCount > 0)
+        else
         {
-            Touch myTouch = Input.touches[0];
-
-            switch (myTouch.phase)
+            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
             {
-                case TouchPhase.Began:
-                    touchOrigin = myTouch.position;
-                    if(!back.pause)
-                        if(Time.timeScale < 1)
-                            Time.timeScale = 1;
-                    break;
-
-                case TouchPhase.Ended:
+                if (!back.pause)
+                    if (Time.timeScale < 1)
+                        Time.timeScale = 1;
+                if (pingpong)
+                {
+                    rb.velocity = new Vector2(direction, 1) * jumpForce;
+                }
+                else
+                {
                     rb.velocity = Vector2.up * jumpForce;
-                    break;
+                }
             }
 
+            if (Input.touchCount > 0)
+            {
+                Touch myTouch = Input.touches[0];
+
+                switch (myTouch.phase)
+                {
+                    case TouchPhase.Began:
+                        touchOrigin = myTouch.position;
+                        if (!back.pause)
+                            if (Time.timeScale < 1)
+                                Time.timeScale = 1;
+                        break;
+
+                    case TouchPhase.Ended:
+                        rb.velocity = Vector2.up * jumpForce;
+                        break;
+                }
+
+            }
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Base" || collider.tag == "ColourChanger")
+        if (collider.tag == "Base" || collider.tag == "ColourChanger")
         {
             return;
         }
@@ -85,14 +104,41 @@ public class ColourSwitchBall : MonoBehaviour {
 
         if (collider.tag == currentColour)
         {
-            
-            if (flappy)
+
+            if (flappy || pingpong || bounce)
             {
                 ColourChanger changer = FindObjectOfType<ColourChanger>();
                 changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
                 score++;
                 text.text = "Score : " + score;
             }
+
+            //if(pingpong)
+            //{
+            //    ColourChanger changer = FindObjectOfType<ColourChanger>();
+            //    changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
+            //    score++;
+            //    text.text = "Score : " + score;
+            //}
+
+            //if(bounce)
+            //{
+            //    ColourChanger changer = FindObjectOfType<ColourChanger>();
+            //    changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
+            //    score++;
+            //    text.text = "Score : " + score;
+            //}
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Direction")
+            if(pingpong)
+            {
+                direction = -direction;
+                Debug.Log(direction);
+                rb.velocity = new Vector2(direction, 1) * jumpForce;
+            }
     }
 }

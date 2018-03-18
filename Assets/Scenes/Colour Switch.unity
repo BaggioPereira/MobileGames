@@ -297,6 +297,8 @@ MonoBehaviour:
   score: 0
   text: {fileID: 599366459}
   flappy: 0
+  pingpong: 0
+  direction: 0.25
 --- !u!212 &412175938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -349,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 412175934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -436,8 +438,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 528817363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130, y: 231, z: 0}
-  m_LocalScale: {x: 0.325, y: 0.325, z: 0.325}
+  m_LocalPosition: {x: 255.5, y: 454.5, z: 0}
+  m_LocalScale: {x: 0.63875, y: 0.63875, z: 0.63875}
   m_Children:
   - {fileID: 592389136}
   - {fileID: 1106328651}
