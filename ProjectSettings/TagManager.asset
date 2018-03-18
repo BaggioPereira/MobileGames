@@ -16,6 +16,8 @@ TagManager:
   - Obstacle
   - Point
   - Food
+  - Direction
+  - Bounce
   layers:
   - Default
   - TransparentFX
