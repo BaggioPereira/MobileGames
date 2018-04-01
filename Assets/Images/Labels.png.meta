@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: 55e15a304a001b44a9437e1f05e199e7
+timeCreated: 1522582266
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Labels_0
+    21300002: Labels_1
+    21300004: Labels_2
+    21300006: Labels_3
+    21300008: Labels_4
+    21300010: Labels_5
+    21300012: Labels_6
+    21300014: Labels_7
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Labels_0
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 700
+        width: 86
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_1
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 707
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_2
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 708
+        width: 17
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_3
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 708
+        width: 67
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 432
+        width: 72
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 435
+        width: 69
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_6
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 434
+        width: 84
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Labels_7
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 435
+        width: 66
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -215, y: -17}
+      - {x: -208, y: -19}
+      - {x: -189, y: -19}
+      - {x: -187, y: -17}
+      - {x: -187, y: -5}
+      - {x: -190, y: 3}
+      - {x: -208, y: 14}
+      - {x: -258, y: 14}
+      - {x: -258, y: -82}
+      - {x: -210, y: -82}
+      - {x: -182, y: -76}
+      - {x: -182, y: -36}
+      - {x: -194, y: -28}
+    - - {x: -81, y: 14}
+      - {x: -90, y: -12}
+      - {x: -90, y: -64}
+      - {x: -78, y: -80}
+      - {x: -9, y: -80}
+      - {x: -2, y: -63}
+      - {x: -2, y: 1}
+      - {x: -28, y: 14}
+    - - {x: -173, y: 11}
+      - {x: -173, y: -79}
+      - {x: -100, y: -79}
+      - {x: -100, y: 11}
+    - - {x: 69, y: 11}
+      - {x: 7, y: 11}
+      - {x: 7, y: -77}
+      - {x: 9, y: -79}
+      - {x: 36, y: -79}
+      - {x: 77, y: -35}
+      - {x: 77, y: -6}
+      - {x: 74, y: 1}
+    - - {x: -239, y: 285}
+      - {x: -246, y: 258}
+      - {x: -246, y: 206}
+      - {x: -231, y: 186}
+      - {x: -156, y: 186}
+      - {x: -156, y: 276}
+      - {x: -182, y: 285}
+    - - {x: -148, y: 284}
+      - {x: -149, y: 282}
+      - {x: -149, y: 207}
+      - {x: -134, y: 193}
+      - {x: -84, y: 193}
+      - {x: -76, y: 207}
+      - {x: -76, y: 284}
+    - - {x: -61, y: 284}
+      - {x: -63, y: 282}
+      - {x: -63, y: 196}
+      - {x: -61, y: 194}
+      - {x: -44, y: 194}
+      - {x: -42, y: 196}
+      - {x: -42, y: 282}
+      - {x: -44, y: 284}
+    - - {x: -35, y: 282}
+      - {x: -35, y: 267}
+      - {x: -9, y: 194}
+      - {x: 19, y: 194}
+      - {x: 36, y: 254}
+      - {x: 36, y: 284}
+      - {x: -33, y: 284}
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
