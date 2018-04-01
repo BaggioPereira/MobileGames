@@ -89,7 +89,7 @@ public class ColourSwitchBall : MonoBehaviour {
         if (collider.tag == "Point")
         {
             score++;
-            text.text = "Score : " + score;
+            text.text = score.ToString();
             Destroy(collider.gameObject);
             return;
         }

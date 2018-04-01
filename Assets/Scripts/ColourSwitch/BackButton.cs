@@ -44,6 +44,20 @@ public class BackButton : MonoBehaviour {
         }
 	}
 
+    public void Back()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce")
+        {
+            if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+            {
+                pausePanel.SetActive(true);
+                pause = !pause;
+                Time.timeScale = 0;
+            }
+        }
+    }
+
     public void Play()
     {
         SceneManager.LoadScene("Game Select", LoadSceneMode.Single);
