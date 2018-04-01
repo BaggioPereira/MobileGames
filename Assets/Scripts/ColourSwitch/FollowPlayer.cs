@@ -29,7 +29,10 @@ public class FollowPlayer : MonoBehaviour {
         for(int i = 0; i < pastObstacles.Length; i++)
         {
             if (pastObstacles[i].transform.position.y < transform.position.y -10f)
-                Destroy(pastObstacles[i]);
+                if(pastObstacles[i].transform.parent != null)
+                    Destroy(pastObstacles[i].transform.parent.gameObject);
+                else
+                    Destroy(pastObstacles[i]);
         }
 	}
 }

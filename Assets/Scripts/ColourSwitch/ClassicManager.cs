@@ -19,7 +19,7 @@ public class ClassicManager : MonoBehaviour {
         if(obstacles.Length < maxObstacles)
         {
             obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 5f);
+            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 7.5f);
             int choice = Random.Range(0, obstaclePrefabs.Length);
             Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
         }
@@ -31,7 +31,7 @@ public class ClassicManager : MonoBehaviour {
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         if (obstacles.Length < maxObstacles)
         {
-            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 5f);
+            Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 7.5f);
             int choice = Random.Range(0, obstaclePrefabs.Length);
             Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
         }

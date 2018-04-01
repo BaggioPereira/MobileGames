@@ -11,6 +11,7 @@ public class ColourSwitchBall : MonoBehaviour {
     public Rigidbody2D rb;
 
     public string currentColour;
+    public int currentColourInt;
     
     private Vector2 touchOrigin = -Vector2.one;
 
