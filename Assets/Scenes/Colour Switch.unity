@@ -1606,7 +1606,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1684,16 +1684,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: 1309421138257312, guid: aa2ac5598d4053a4ba4caf2d58bb008c, type: 2}
-  - {fileID: 1386231730550792, guid: 925c056cef3475a47afd21dc8adc676b, type: 2}
-  - {fileID: 1680376806349460, guid: 564021f104bfe534b90f0a13d9c15f31, type: 2}
-  - {fileID: 1538081250286288, guid: b5c09d426e90e404da79cd6538daa856, type: 2}
+  - {fileID: 1239791275991006, guid: 00d51fa58dcdd06468a94728a785aa89, type: 2}
+  - {fileID: 1275187022309734, guid: a1881320ec3dd264b8d6b7dc8b2085af, type: 2}
+  - {fileID: 1769625246057216, guid: 42a2f7acb4249574e91e67b8ca240ad0, type: 2}
+  - {fileID: 1392425424432692, guid: 6f8adabe95f48484cb6b49f119e44f9c, type: 2}
   - {fileID: 1772787745178824, guid: c076c6f10f6a4504f94716b2afca0ce8, type: 2}
   - {fileID: 1945768681074950, guid: 3eb54c987fb22bb4a8ec32f3d867b2db, type: 2}
   - {fileID: 1231007058434386, guid: 0969caf1e3f68184e92138588722ef3e, type: 2}
   - {fileID: 1392425424432692, guid: 6f8adabe95f48484cb6b49f119e44f9c, type: 2}
-  - {fileID: 1239791275991006, guid: 00d51fa58dcdd06468a94728a785aa89, type: 2}
-  - {fileID: 1275187022309734, guid: a1881320ec3dd264b8d6b7dc8b2085af, type: 2}
-  - {fileID: 1769625246057216, guid: 42a2f7acb4249574e91e67b8ca240ad0, type: 2}
-  - {fileID: 1117960444442162, guid: 0c9118b631b27fc43878aab08a046bae, type: 2}
   maxObstacles: 5
