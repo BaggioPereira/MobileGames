@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ColourChanger : MonoBehaviour {
+    enum Colours
+    {
+        cCyan,
+        mMagenta,
+        yYellow,
+        pPink
+    };
 
     int colourIndex = 0;
     
@@ -26,6 +33,11 @@ public class ColourChanger : MonoBehaviour {
 		
 	}
 
+    void GetCurrentColour(Collider2D collider)
+    {
+        colourIndex = collider.GetComponent<ColourSwitchBall>().currentColourInt;
+    }
+
     public void SetRandomColour(Collider2D collider)
     {
         
@@ -36,22 +48,26 @@ public class ColourChanger : MonoBehaviour {
             switch (index)
             {
                 case 0:
-                    collider.GetComponent<ColourSwitchBall>().currentColour = "Magenta";
-                    sr.color = colourMagenta;
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Cyan";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 0;
+                    sr.color = colourCyan;
                     break;
 
                 case 1:
-                    collider.GetComponent<ColourSwitchBall>().currentColour = "Cyan";
-                    sr.color = colourCyan;
+                    collider.GetComponent<ColourSwitchBall>().currentColour = "Magenta";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 1;
+                    sr.color = colourMagenta;
                     break;
 
                 case 2:
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Yellow";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 2;
                     sr.color = colourYellow;
                     break;
 
                 case 3:
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Pink";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 3;
                     sr.color = colourPink;
                     break;
             }
@@ -75,26 +91,31 @@ public class ColourChanger : MonoBehaviour {
                 if (cyan)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Cyan";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 0;
                     sr.color = colourCyan;
                 }
                 else if (magenta)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Magenta";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 1;
                     sr.color = colourMagenta;
                 }
                 else if (yellow)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Yellow";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 2;
                     sr.color = colourYellow;
                 }
                 else if (pink)
                 {
                     collider.GetComponent<ColourSwitchBall>().currentColour = "Pink";
+                    collider.GetComponent<ColourSwitchBall>().currentColourInt = 3;
                     sr.color = colourPink;
                 }
             }
             else
             {
+                GetCurrentColour(collider);
                 SetRandomColour(collider);
             }
             Destroy(gameObject);
