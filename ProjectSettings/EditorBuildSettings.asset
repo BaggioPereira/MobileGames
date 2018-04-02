@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Colour Switch PingPong.unity
     guid: dc7ca59bb1afb1148963819f332bc7c8
+  - enabled: 1
+    path: Assets/Scenes/Colour Switch Bounce.unity
+    guid: b336211aa3e36f9408704e587a9251f5

@@ -78,6 +78,16 @@ public class BackButton : MonoBehaviour {
         SceneManager.LoadScene("Colour Switch Snake", LoadSceneMode.Single);
     }
 
+    public void Bounce()
+    {
+        SceneManager.LoadScene("Colour Switch Bounce", LoadSceneMode.Single);
+    }
+
+    public void PingPong()
+    {
+        SceneManager.LoadScene("Colour Switch PingPong", LoadSceneMode.Single);
+    }
+
     public void Resume()
     {
         pausePanel.SetActive(false);

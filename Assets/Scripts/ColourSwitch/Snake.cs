@@ -22,6 +22,7 @@ public class Snake : MonoBehaviour {
     public Color[] colours;
     public Text text;
     int score = 0;
+    int colour;
 
     // Use this for initialization
     void Start ()
@@ -129,6 +130,7 @@ public class Snake : MonoBehaviour {
                 {
                     if (direction == Vector2.left)
                     {
+
                     }
                     else
                     {
@@ -161,7 +163,7 @@ public class Snake : MonoBehaviour {
                 }
                 else
                 {
-                    if (direction == Vector2.right)
+                    if (direction == Vector2.up)
                     {
                     }
                     else
@@ -175,7 +177,7 @@ public class Snake : MonoBehaviour {
 
     public void SnakeColourChange()
     {
-        int colour = Random.Range(0, colours.Length);
+        RandomNumber(false,-1);
         gameObject.GetComponent<Renderer>().material.color = colours[colour];
         if (colour == 0)
             currentColour = "Cyan";
@@ -185,5 +187,27 @@ public class Snake : MonoBehaviour {
             currentColour = "Pink";
         if (colour == 3)
             currentColour = "Magenta";
+    }
+
+    public void SnakeColourChange(int colourToAvoid)
+    {
+        RandomNumber(true,colourToAvoid);
+        gameObject.GetComponent<Renderer>().material.color = colours[colour];
+        if (colour == 0)
+            currentColour = "Cyan";
+        if (colour == 1)
+            currentColour = "Yellow";
+        if (colour == 2)
+            currentColour = "Pink";
+        if (colour == 3)
+            currentColour = "Magenta";
+    }
+
+    void RandomNumber(bool avoid,int avoidColour)
+    {
+        colour = Random.Range(0, colours.Length);
+        if (avoid)
+            if (colour == avoidColour)
+                RandomNumber(avoid, avoidColour);
     }
 }

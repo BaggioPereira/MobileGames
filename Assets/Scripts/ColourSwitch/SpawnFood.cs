@@ -73,9 +73,24 @@ public class SpawnFood : MonoBehaviour
 
         if (foodCounter == maxFood)
         {
-            if (cyan == 0 || yellow == 0 || pink == 0 || magenta == 0)
+            if (cyan == 0)
             {
-                snake.SnakeColourChange();
+                snake.SnakeColourChange(0);
+            }
+
+            else if (yellow == 0)
+            {
+                snake.SnakeColourChange(1);
+            }
+
+            else if (pink == 0)
+            {
+                snake.SnakeColourChange(2);
+            }
+
+            else if (magenta == 0)
+            {
+                snake.SnakeColourChange(3);
             }
         }
     }
