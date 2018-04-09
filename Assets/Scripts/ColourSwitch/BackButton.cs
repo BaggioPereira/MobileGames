@@ -27,7 +27,7 @@ public class BackButton : MonoBehaviour {
                 Application.Quit();
             }
 
-            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce")
+            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong" || sceneName == "Game Select")
             {
                 if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
                 {
