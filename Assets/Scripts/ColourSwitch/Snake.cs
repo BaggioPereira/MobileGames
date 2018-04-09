@@ -21,7 +21,7 @@ public class Snake : MonoBehaviour {
 
     public Color[] colours;
     public Text text;
-    int score = 0;
+    public int score = 0;
     int colour;
 
     // Use this for initialization
@@ -32,6 +32,11 @@ public class Snake : MonoBehaviour {
         Time.timeScale = 1;
         back = FindObjectOfType<BackButton>();
         SnakeColourChange();
+        Debug.Log("Found");
+        score = PlayerPrefs.GetInt("Collection");
+        score = 0;
+        text.text = score.ToString();
+        Debug.Log(PlayerPrefs.GetInt("Collection"));
         InvokeRepeating("Move", 0.3f, 0.3f);
 	}
 	
@@ -97,7 +102,7 @@ public class Snake : MonoBehaviour {
             {
                 ate = true;
                 score++;
-                text.text = "Score : " + score;
+                text.text = score.ToString();
                 Destroy(collision.gameObject);
                 SnakeColourChange();
             }
@@ -114,6 +119,8 @@ public class Snake : MonoBehaviour {
         {
             Time.timeScale = 0;
             back.pause = true;
+            PlayerPrefs.SetInt("Collection", score);
+            Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene("Snake");
         }

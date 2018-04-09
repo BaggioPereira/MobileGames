@@ -15,7 +15,7 @@ public class ColourSwitchBall : MonoBehaviour {
     
     private Vector2 touchOrigin = -Vector2.one;
 
-    public float score = 0;
+    public int score = 0;
 
     public Text text;
 
@@ -24,13 +24,18 @@ public class ColourSwitchBall : MonoBehaviour {
     public bool bounce;
 
     BackButton back;
-    public float direction = 0.25f;
+    public float direction = 0.5f;
 
     // Use this for initialization
     void Start ()
     {
         back = FindObjectOfType<BackButton>();
-	}
+        Debug.Log("Found");
+        //score = PlayerPrefs.GetInt("Collection");
+        score = 0;
+        text.text = score.ToString();
+        Debug.Log(PlayerPrefs.GetInt("Collection"));
+    }
 
     // Update is called once per frame
     void Update ()
@@ -99,6 +104,8 @@ public class ColourSwitchBall : MonoBehaviour {
         {
             Time.timeScale = 0;
             back.pause = true;
+            PlayerPrefs.SetInt("Collection", score);
+            Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
@@ -111,7 +118,7 @@ public class ColourSwitchBall : MonoBehaviour {
                 ColourChanger changer = FindObjectOfType<ColourChanger>();
                 changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
                 score++;
-                text.text = "Score : " + score;
+                text.text = score.ToString();
             }
 
             //if(pingpong)
