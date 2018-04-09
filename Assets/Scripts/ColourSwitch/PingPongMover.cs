@@ -20,8 +20,8 @@ public class PingPongMover : MonoBehaviour {
             if (pingpong)
             {
                 lines[i].transform.position = new Vector3(transform.position.x, lines[i].transform.position.y - (speed * Time.deltaTime), transform.position.z);
-                if (lines[i].transform.position.y < -9f)
-                    lines[i].transform.position = new Vector3(lines[i].transform.position.x, lines[i].transform.position.y + 20f, lines[i].transform.position.z);
+                if (lines[i].transform.position.y < -15f)
+                    lines[i].transform.position = new Vector3(lines[i].transform.position.x, lines[i].transform.position.y + 33f, lines[i].transform.position.z);
             }
         }
     }
