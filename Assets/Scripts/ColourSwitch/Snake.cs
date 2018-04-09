@@ -34,7 +34,8 @@ public class Snake : MonoBehaviour {
         SnakeColourChange();
         Debug.Log("Found");
         score = PlayerPrefs.GetInt("Collection");
-        score = 0;
+        if(Application.isEditor)
+            score = 0;
         text.text = score.ToString();
         Debug.Log(PlayerPrefs.GetInt("Collection"));
         InvokeRepeating("Move", 0.3f, 0.3f);
