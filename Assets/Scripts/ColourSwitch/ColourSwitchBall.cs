@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ColourSwitchBall : MonoBehaviour {
 
+    public GameObject Cube;
     public float jumpForce = 10.0f;
 
     public Rigidbody2D rb;
@@ -26,27 +27,30 @@ public class ColourSwitchBall : MonoBehaviour {
     BackButton back;
     public float direction = 0.5f;
 
+    float width;
+
     // Use this for initialization
     void Start ()
     {
         back = FindObjectOfType<BackButton>();
-        Debug.Log("Found");
+        //Debug.Log("Found");
         //score = PlayerPrefs.GetInt("Collection");
         score = 0;
         text.text = score.ToString();
-        Debug.Log(PlayerPrefs.GetInt("Collection"));
+        width = Screen.width;
+        //Debug.Log(PlayerPrefs.GetInt("Collection"));
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (bounce)
-        {
+        //if (bounce)
+        //{
 
-        }
+        //}
 
-        else
-        {
+        //else
+        //{
             if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
             {
                 if (!back.pause)
@@ -56,32 +60,49 @@ public class ColourSwitchBall : MonoBehaviour {
                 {
                     rb.velocity = new Vector2(direction, 1) * jumpForce;
                 }
+                else if (bounce)
+                {
+                    if (Input.mousePosition.x > width / 2)
+                        Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+                    else
+                        Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
+                }
+
                 else
                 {
                     rb.velocity = Vector2.up * jumpForce;
                 }
+
+                
             }
 
-            if (Input.touchCount > 0)
-            {
-                Touch myTouch = Input.touches[0];
+            //if (Input.touchCount > 0)
+            //{
+            //    Touch myTouch = Input.touches[0];
 
-                switch (myTouch.phase)
-                {
-                    case TouchPhase.Began:
-                        touchOrigin = myTouch.position;
-                        if (!back.pause)
-                            if (Time.timeScale < 1)
-                                Time.timeScale = 1;
-                        break;
+            //    switch (myTouch.phase)
+            //    {
+            //        case TouchPhase.Began:
+            //            touchOrigin = myTouch.position;
+            //            if (!back.pause)
+            //                if (Time.timeScale < 1)
+            //                    Time.timeScale = 1;
+            //            break;
 
-                    case TouchPhase.Ended:
-                        rb.velocity = Vector2.up * jumpForce;
-                        break;
-                }
+            //        case TouchPhase.Ended:
+            //            if (pingpong)
+            //            {
+            //                rb.velocity = new Vector2(direction, 1) * jumpForce;
+            //            }
+            //            else
+            //            {
+            //                rb.velocity = Vector2.up * jumpForce;
+            //            }
+            //            break;
+            //    }
 
-            }
-        }
+            //}
+        //}
         
     }
 
@@ -105,7 +126,7 @@ public class ColourSwitchBall : MonoBehaviour {
             Time.timeScale = 0;
             back.pause = true;
             PlayerPrefs.SetInt("Collection", score);
-            Debug.Log("Saved");
+            //Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
@@ -145,7 +166,7 @@ public class ColourSwitchBall : MonoBehaviour {
             if(pingpong)
             {
                 direction = -direction;
-                Debug.Log(direction);
+                //Debug.Log(direction);
                 rb.velocity = new Vector2(direction, 1) * jumpForce;
             }
     }

@@ -25,48 +25,48 @@ public class BounceManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
-    {
-        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
-        {
-            if (!back.pause)
-                if (Time.timeScale < 1)
-                    Time.timeScale = 1;
-            if (!back.pause)
-            {
-                if (Input.mousePosition.x > width / 2)
-                    Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
-                else
-                    Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
-            }
-        }
+	//void Update ()
+ //   {
+ //       if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+ //       {
+ //           if (!back.pause)
+ //               if (Time.timeScale < 1)
+ //                   Time.timeScale = 1;
+ //           if (!back.pause)
+ //           {
+ //               if (Input.mousePosition.x > width / 2)
+ //                   Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+ //               else
+ //                   Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
+ //           }
+ //       }
 
-        if (Input.touchCount > 0)
-        {
-            Touch myTouch = Input.touches[0];
+ //       if (Input.touchCount > 0 && Input.touchCount < 2)
+ //       {
+ //           Touch myTouch = Input.touches[0];
 
-            switch (myTouch.phase)
-            {
-                case TouchPhase.Began:
-                    touchOrigin = myTouch.position;
-                    if (!back.pause)
-                        if (Time.timeScale < 1)
-                            Time.timeScale = 1;
-                    break;
+ //           switch (myTouch.phase)
+ //           {
+ //               case TouchPhase.Began:
+ //                   touchOrigin = myTouch.position;
+ //                   if (!back.pause)
+ //                       if (Time.timeScale < 1)
+ //                           Time.timeScale = 1;
+ //                   break;
 
-                case TouchPhase.Ended:
-                    if (!back.pause)
-                    {
-                        if (touchOrigin.x > width / 2)
-                            Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
-                        else
-                            Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
-                    }
-                    break;
-            }
+ //               case TouchPhase.Ended:
+ //                   if (!back.pause)
+ //                   {
+ //                       if (touchOrigin.x > width / 2)
+ //                           Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
+ //                       else
+ //                           Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
+ //                   }
+ //                   break;
+ //           }
 
-        }
-    }
+ //       }
+ //   }
 
     //void OnTriggerEnter2D(Collider2D collider)
     //{
