@@ -24,6 +24,8 @@ public class Snake : MonoBehaviour {
     public int score = 0;
     int colour;
 
+    Color tailColour;
+
     // Use this for initialization
     void Start ()
     {
@@ -82,7 +84,7 @@ public class Snake : MonoBehaviour {
         if(ate)
         {
             GameObject g = (GameObject)Instantiate(tailPrefab, v, Quaternion.identity);
-
+            g.GetComponent<Renderer>().material.color = tailColour;
             tail.Insert(0, g.transform);
             ate = false;
         }
@@ -102,6 +104,7 @@ public class Snake : MonoBehaviour {
             if (collision.tag == currentColour)
             {
                 ate = true;
+                tailColour = collision.GetComponent<Renderer>().material.color;
                 score++;
                 text.text = score.ToString();
                 Destroy(collision.gameObject);
