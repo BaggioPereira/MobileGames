@@ -42,7 +42,7 @@ public class SpawnFood : MonoBehaviour
         magenta = GameObject.FindGameObjectsWithTag("Magenta").Length;
         //Debug.Log(magenta);
         foodCounter = cyan + yellow + pink + magenta;
-        if (foodCounter < maxFood)
+        if (foodCounter < maxFood - 1)
         {
             location = RandomLocation();
 
@@ -71,26 +71,90 @@ public class SpawnFood : MonoBehaviour
                 food.tag = "Magenta";
         }
 
-        if (foodCounter == maxFood)
+        if (foodCounter < maxFood)
         {
             if (cyan == 0)
             {
-                snake.SnakeColourChange(0);
+                location = RandomLocation();
+
+                foreach (var foodObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
+                {
+                    if (foodObj.name == "FoodPrefab")
+                    {
+                        if (foodObj.transform.position == location)
+                        {
+                            location = RandomLocation();
+                        }
+                    }
+                }
+
+                // Instantiate the food at (x, y)
+                GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
+                food.GetComponent<Renderer>().material.color = foodColour[0];
+                food.tag = "Cyan";
             }
 
             else if (yellow == 0)
             {
-                snake.SnakeColourChange(1);
+                location = RandomLocation();
+
+                foreach (var foodObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
+                {
+                    if (foodObj.name == "FoodPrefab")
+                    {
+                        if (foodObj.transform.position == location)
+                        {
+                            location = RandomLocation();
+                        }
+                    }
+                }
+
+                // Instantiate the food at (x, y)
+                GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
+                food.GetComponent<Renderer>().material.color = foodColour[1];
+                food.tag = "Yellow";
             }
 
             else if (pink == 0)
             {
-                snake.SnakeColourChange(2);
+                location = RandomLocation();
+
+                foreach (var foodObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
+                {
+                    if (foodObj.name == "FoodPrefab")
+                    {
+                        if (foodObj.transform.position == location)
+                        {
+                            location = RandomLocation();
+                        }
+                    }
+                }
+
+                // Instantiate the food at (x, y)
+                GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
+                food.GetComponent<Renderer>().material.color = foodColour[2];
+                food.tag = "Pink";
             }
 
             else if (magenta == 0)
             {
-                snake.SnakeColourChange(3);
+                location = RandomLocation();
+
+                foreach (var foodObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
+                {
+                    if (foodObj.name == "FoodPrefab")
+                    {
+                        if (foodObj.transform.position == location)
+                        {
+                            location = RandomLocation();
+                        }
+                    }
+                }
+
+                // Instantiate the food at (x, y)
+                GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
+                food.GetComponent<Renderer>().material.color = foodColour[3];
+                food.tag = "Magenta";
             }
         }
     }
