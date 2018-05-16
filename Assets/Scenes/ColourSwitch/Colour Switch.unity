@@ -209,6 +209,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224606107921303378, guid: 302ef895785c61b45a9539501a5b0f27,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.00865
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 302ef895785c61b45a9539501a5b0f27, type: 2}
   m_IsPrefabParent: 0
@@ -282,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239b940ae2daee47bbf3df4fabf0e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cube: {fileID: 0}
   jumpForce: 5
   rb: {fileID: 412175936}
   currentColour: 
