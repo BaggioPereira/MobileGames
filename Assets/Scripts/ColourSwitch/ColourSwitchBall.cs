@@ -44,66 +44,30 @@ public class ColourSwitchBall : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        //if (bounce)
-        //{
-
-        //}
-
-        //else
-        //{
-            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        {
+            if (!back.pause)
+                if (Time.timeScale < 1)
+                    Time.timeScale = 1;
+            if (pingpong)
             {
-                if (!back.pause)
-                    if (Time.timeScale < 1)
-                        Time.timeScale = 1;
-                if (pingpong)
-                {
-                    rb.velocity = new Vector2(direction, 1) * jumpForce;
-                }
-                else if (bounce)
-                {
-                    if (Input.mousePosition.x > width / 2)
-                        Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
-                    else
-                        Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
-                }
-
+                rb.velocity = new Vector2(direction, 1) * jumpForce;
+            }
+            else if (bounce)
+            {
+                if (Input.mousePosition.x > width / 2)
+                    Cube.transform.Rotate(new Vector3(0, 0, 1), 90);
                 else
-                {
-                    rb.velocity = Vector2.up * jumpForce;
-                }
-
-                
+                    Cube.transform.Rotate(new Vector3(0, 0, 1), -90);
             }
 
-            //if (Input.touchCount > 0)
-            //{
-            //    Touch myTouch = Input.touches[0];
+            else
+            {
+                rb.velocity = Vector2.up * jumpForce;
+            }
 
-            //    switch (myTouch.phase)
-            //    {
-            //        case TouchPhase.Began:
-            //            touchOrigin = myTouch.position;
-            //            if (!back.pause)
-            //                if (Time.timeScale < 1)
-            //                    Time.timeScale = 1;
-            //            break;
-
-            //        case TouchPhase.Ended:
-            //            if (pingpong)
-            //            {
-            //                rb.velocity = new Vector2(direction, 1) * jumpForce;
-            //            }
-            //            else
-            //            {
-            //                rb.velocity = Vector2.up * jumpForce;
-            //            }
-            //            break;
-            //    }
-
-            //}
-        //}
-        
+                
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -141,22 +105,6 @@ public class ColourSwitchBall : MonoBehaviour {
                 score++;
                 text.text = score.ToString();
             }
-
-            //if(pingpong)
-            //{
-            //    ColourChanger changer = FindObjectOfType<ColourChanger>();
-            //    changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
-            //    score++;
-            //    text.text = "Score : " + score;
-            //}
-
-            //if(bounce)
-            //{
-            //    ColourChanger changer = FindObjectOfType<ColourChanger>();
-            //    changer.SetRandomColour(gameObject.GetComponent<Collider2D>());
-            //    score++;
-            //    text.text = "Score : " + score;
-            //}
         }
     }
 
