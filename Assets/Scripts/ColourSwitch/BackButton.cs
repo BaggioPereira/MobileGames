@@ -7,7 +7,7 @@ public class BackButton : MonoBehaviour {
 
     //[HideInInspector]
     public bool pause = false;
-    public GameObject pausePanel, gameOverPanel;
+    public GameObject pausePanel, gameOverPanel, shopPanel;
 
 	// Use this for initialization
 	void Start ()
@@ -47,13 +47,21 @@ public class BackButton : MonoBehaviour {
     public void Back()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce")
+        if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
         {
             if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
             {
                 pausePanel.SetActive(true);
                 pause = !pause;
                 Time.timeScale = 0;
+            }
+        }
+
+        if (shopPanel)
+        {
+            if (shopPanel.activeSelf == true)
+            {
+                shopPanel.SetActive(false);
             }
         }
     }
@@ -86,6 +94,11 @@ public class BackButton : MonoBehaviour {
     public void PingPong()
     {
         SceneManager.LoadScene("Colour Switch PingPong", LoadSceneMode.Single);
+    }
+
+    public void Shop()
+    {
+        shopPanel.SetActive(true);
     }
 
     public void Resume()
