@@ -321,6 +321,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988336322920542, guid: 302ef895785c61b45a9539501a5b0f27, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 302ef895785c61b45a9539501a5b0f27, type: 2}
   m_IsPrefabParent: 0
@@ -329,12 +333,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224606107921303378, guid: 302ef895785c61b45a9539501a5b0f27,
     type: 2}
   m_PrefabInternal: {fileID: 269181750}
---- !u!114 &269181752 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114782880810812166, guid: 302ef895785c61b45a9539501a5b0f27,
-    type: 2}
-  m_PrefabInternal: {fileID: 269181750}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &295370299
 Prefab:
   m_ObjectHideFlags: 0
@@ -437,7 +435,7 @@ MonoBehaviour:
   currentColour: 
   currentColourInt: 0
   score: 0
-  text: {fileID: 269181752}
+  text: {fileID: 1290116330}
   flappy: 0
   pingpong: 0
   bounce: 1
@@ -837,6 +835,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290116330 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114520598066152652, guid: 302ef895785c61b45a9539501a5b0f27,
+    type: 2}
+  m_PrefabInternal: {fileID: 269181750}
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
 --- !u!1 &1571001200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,4 +1167,4 @@ MonoBehaviour:
   Cube: {fileID: 1240522044}
   InitalChanger: {fileID: 1684558246}
   score: 0
-  text: {fileID: 269181752}
+  text: {fileID: 1290116330}

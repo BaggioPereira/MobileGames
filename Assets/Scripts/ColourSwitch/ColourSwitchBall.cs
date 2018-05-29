@@ -75,9 +75,7 @@ public class ColourSwitchBall : MonoBehaviour {
             else
             {
                 rb.velocity = Vector2.up * jumpForce;
-            }
-
-                
+            } 
         }
     }
 

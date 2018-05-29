@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BounceManager : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class BounceManager : MonoBehaviour {
     BackButton back;
     public float score = 0;
 
-    public Text text;
+    public TextMeshProUGUI text;
 
     float width;
     // Use this for initialization
