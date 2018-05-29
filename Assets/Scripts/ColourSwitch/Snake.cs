@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using TMPro;
 
 public class Snake : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class Snake : MonoBehaviour {
     public string currentColour;
 
     public Color[] colours;
-    public Text text;
+    public TextMeshProUGUI text;
     public int score = 0;
     int colour;
 
