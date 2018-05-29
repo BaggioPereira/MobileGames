@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using TMPro;
 
 public class ColourSwitchBall : MonoBehaviour {
 
@@ -25,7 +26,7 @@ public class ColourSwitchBall : MonoBehaviour {
 
     public int score = 0;
 
-    public Text text;
+    public TextMeshProUGUI text;
 
     public bool flappy;
     public bool pingpong;
