@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class ColourSwitchBall : MonoBehaviour {
+
+    #if UNITY_IOS
+    private string gameID = "1727075";
+    #elif UNITY_ANDROID
+    private string gameID = "1727074";
+    #endif
 
     public GameObject Cube;
     public float jumpForce = 10.0f;
@@ -29,9 +36,12 @@ public class ColourSwitchBall : MonoBehaviour {
 
     float width;
 
+
+
     // Use this for initialization
     void Start ()
     {
+        Advertisement.Initialize(gameID);
         back = FindObjectOfType<BackButton>();
         //Debug.Log("Found");
         //score = PlayerPrefs.GetInt("Collection");
@@ -93,6 +103,7 @@ public class ColourSwitchBall : MonoBehaviour {
             //Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            Advertisement.Show();
         }
 
         if (collider.tag == currentColour)

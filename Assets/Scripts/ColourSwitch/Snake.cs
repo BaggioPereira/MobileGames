@@ -4,8 +4,15 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class Snake : MonoBehaviour {
+
+    #if UNITY_IOS
+    private string gameID = "1727075";
+    #elif UNITY_ANDROID
+    private string gameID = "1727074";
+    #endif
 
     Vector2 direction = Vector2.right;
     List<Transform> tail = new List<Transform>();
@@ -29,6 +36,7 @@ public class Snake : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        Advertisement.Initialize(gameID);
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
         Time.timeScale = 1;
@@ -116,6 +124,7 @@ public class Snake : MonoBehaviour {
                 Time.timeScale = 0;
                 back.pause = true;
                 Destroy(gameObject);
+                Advertisement.Show();
             }
         }
 
@@ -127,6 +136,7 @@ public class Snake : MonoBehaviour {
             Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene("Snake");
+            Advertisement.Show();
         }
     }
 

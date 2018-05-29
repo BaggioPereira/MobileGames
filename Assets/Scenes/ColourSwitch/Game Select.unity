@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2127707825}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -1485,6 +1485,7 @@ MonoBehaviour:
   pause: 0
   pausePanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
+  shopPanel: {fileID: 0}
 --- !u!224 &2127707826
 RectTransform:
   m_ObjectHideFlags: 0

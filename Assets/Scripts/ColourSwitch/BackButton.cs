@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour {
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool pause = false;
     public GameObject pausePanel, gameOverPanel, shopPanel;
 
@@ -27,6 +27,7 @@ public class BackButton : MonoBehaviour {
                 Application.Quit();
             }
 
+            //Enable pause menu in these scenes
             else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong" || sceneName == "Game Select")
             {
                 if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
@@ -44,6 +45,8 @@ public class BackButton : MonoBehaviour {
         }
 	}
 
+
+    //Back button commands
     public void Back()
     {
         string sceneName = SceneManager.GetActiveScene().name;
