@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 61ad2efec602ac34eb709c6338e9d84b
-timeCreated: 1527610426
+guid: 0ef0856241f446c468e54738adb53652
+timeCreated: 1527611025
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Empty1024x1024_0
-    21300002: Empty1024x1024_1
-    21300004: Empty1024x1024_2
-    21300006: Empty1024x1024_3
-    21300008: Empty1024x1024_4
-    21300010: Empty1024x1024_5
-    21300012: Empty1024x1024_6
-    21300014: Empty1024x1024_7
-    21300016: Empty1024x1024_8
-    21300018: Empty1024x1024_9
-    21300020: Empty1024x1024_10
-    21300022: Empty1024x1024_11
+    21300000: Empty1024x1024 White_0
+    21300002: Empty1024x1024 White_1
+    21300004: Empty1024x1024 White_2
+    21300006: Empty1024x1024 White_3
+    21300008: Empty1024x1024 White_4
+    21300010: Empty1024x1024 White_5
+    21300012: Empty1024x1024 White_6
+    21300014: Empty1024x1024 White_7
+    21300016: Empty1024x1024 White_8
+    21300018: Empty1024x1024 White_9
+    21300020: Empty1024x1024 White_10
+    21300022: Empty1024x1024 White_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Empty1024x1024_0
+      name: Empty1024x1024 White_0
       rect:
         serializedVersion: 2
         x: 31
@@ -131,7 +131,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_1
+      name: Empty1024x1024 White_1
       rect:
         serializedVersion: 2
         x: 324
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_2
+      name: Empty1024x1024 White_2
       rect:
         serializedVersion: 2
         x: 487
@@ -159,7 +159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_3
+      name: Empty1024x1024 White_3
       rect:
         serializedVersion: 2
         x: 31
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_4
+      name: Empty1024x1024 White_4
       rect:
         serializedVersion: 2
         x: 324
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_5
+      name: Empty1024x1024 White_5
       rect:
         serializedVersion: 2
         x: 487
@@ -201,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_6
+      name: Empty1024x1024 White_6
       rect:
         serializedVersion: 2
         x: 31
@@ -215,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_7
+      name: Empty1024x1024 White_7
       rect:
         serializedVersion: 2
         x: 324
@@ -229,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_8
+      name: Empty1024x1024 White_8
       rect:
         serializedVersion: 2
         x: 487
@@ -243,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_9
+      name: Empty1024x1024 White_9
       rect:
         serializedVersion: 2
         x: 31
@@ -257,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_10
+      name: Empty1024x1024 White_10
       rect:
         serializedVersion: 2
         x: 324
@@ -271,7 +271,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty1024x1024_11
+      name: Empty1024x1024 White_11
       rect:
         serializedVersion: 2
         x: 487
