@@ -1215,6 +1215,7 @@ GameObject:
   - component: {fileID: 1655564256}
   - component: {fileID: 1655564255}
   - component: {fileID: 1655564254}
+  - component: {fileID: 1655564258}
   m_Layer: 5
   m_Name: Overlay
   m_TagString: Untagged
@@ -1301,6 +1302,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1655564258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655564253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d35cd6e4dfa9f4da2acac2ab71ea69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1846335207
 Prefab:
   m_ObjectHideFlags: 0
@@ -1709,7 +1721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb968e3baa750df4da97483caae5871c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes: []
 --- !u!4 &2110630101
 Transform:
   m_ObjectHideFlags: 0

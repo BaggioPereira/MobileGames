@@ -29,7 +29,9 @@ public class Snake : MonoBehaviour {
 
     public Color[] colours;
     public TextMeshProUGUI text;
-    public int score = 0;
+    int collectionCount = 0;
+    int score = 0;
+
     int colour;
 
     Color tailColour;
@@ -44,10 +46,10 @@ public class Snake : MonoBehaviour {
         back = FindObjectOfType<BackButton>();
         SnakeColourChange();
         Debug.Log("Found");
-        score = PlayerPrefs.GetInt("Collection");
+        collectionCount = PlayerPrefs.GetInt("Collection");
         if(Application.isEditor)
-            score = 0;
-        text.text = score.ToString();
+            collectionCount = 0;
+        text.text = collectionCount.ToString();
         Debug.Log(PlayerPrefs.GetInt("Collection"));
         InvokeRepeating("Move", 0.3f, 0.3f);
 	}
@@ -84,6 +86,16 @@ public class Snake : MonoBehaviour {
             direction = Vector2.left; // '-right' means 'left'
         else if (Input.GetKey(KeyCode.UpArrow))
             direction = Vector2.up;
+
+        if(score == 5)
+        {
+            Time.timeScale = 1.5f;
+        }
+
+        if(score == 10)
+        {
+            Time.timeScale = 2;
+        }
     }
 
     void Move()
@@ -114,8 +126,9 @@ public class Snake : MonoBehaviour {
             {
                 ate = true;
                 tailColour = collision.GetComponent<Renderer>().material.color;
+                collectionCount++;
                 score++;
-                text.text = score.ToString();
+                text.text = collectionCount.ToString();
                 Destroy(collision.gameObject);
                 SnakeColourChange();
             }
@@ -132,12 +145,12 @@ public class Snake : MonoBehaviour {
         else if(collision.name.Contains("Border") || collision.name.Contains("Tail"))
         {
             Time.timeScale = 0;
+            Advertisement.Show();
             back.pause = true;
             PlayerPrefs.SetInt("Collection", score);
             Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene("Snake");
-            Advertisement.Show();
         }
     }
 

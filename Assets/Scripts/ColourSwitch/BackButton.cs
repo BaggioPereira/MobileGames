@@ -9,10 +9,16 @@ public class BackButton : MonoBehaviour {
     public bool pause = false;
     public GameObject pausePanel, gameOverPanel, shopPanel;
 
-	// Use this for initialization
-	void Start ()
+    //[HideInInspector]
+    public GameObject[] playerIconsButton;
+    public bool[] playerIcons;
+
+    float timeScaleSetting;
+
+    // Use this for initialization
+    void Start ()
     {
-		
+		DontDestroyOnLoad(this.gameObject);
 	}
 	
 	// Update is called once per frame
@@ -27,13 +33,19 @@ public class BackButton : MonoBehaviour {
                 Application.Quit();
             }
 
+            else if(sceneName == "Game Select")
+            {
+                SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+            }
+
             //Enable pause menu in these scenes
-            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong" || sceneName == "Game Select")
+            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
             {
                 if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
                 {
                     pausePanel.SetActive(true);
                     pause = !pause;
+                    timeScaleSetting = Time.timeScale;
                     Time.timeScale = 0;
                 }
             }
@@ -56,11 +68,17 @@ public class BackButton : MonoBehaviour {
             {
                 pausePanel.SetActive(true);
                 pause = !pause;
+                timeScaleSetting = Time.timeScale;
                 Time.timeScale = 0;
             }
         }
 
-        if (shopPanel)
+        else if(sceneName == "Game Select")
+        {
+            SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+        }
+
+        else if (shopPanel)
         {
             if (shopPanel.activeSelf == true)
             {
@@ -107,7 +125,8 @@ public class BackButton : MonoBehaviour {
     public void Resume()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = timeScaleSetting;
+        Debug.Log(Time.timeScale);
         pause = !pause;
     }
 
@@ -125,5 +144,50 @@ public class BackButton : MonoBehaviour {
 
         else
             SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+    }
+
+    public void Standard()
+    {
+        for(int i = 0; i < playerIcons.Length; i++)
+        {
+            playerIcons[i] = false;
+        }
+        playerIcons[0] = true;
+    }
+
+    public void Square()
+    {
+        for (int i = 0; i < playerIcons.Length; i++)
+        {
+            playerIcons[i] = false;
+        }
+        playerIcons[1] = true;
+    }
+
+    public void Skull()
+    {
+        for (int i = 0; i < playerIcons.Length; i++)
+        {
+            playerIcons[i] = false;
+        }
+        playerIcons[2] = true;
+    }
+
+    public void Shield()
+    {
+        for (int i = 0; i < playerIcons.Length; i++)
+        {
+            playerIcons[i] = false;
+        }
+        playerIcons[3] = true;
+    }
+
+    public void Flame()
+    {
+        for (int i = 0; i < playerIcons.Length; i++)
+        {
+            playerIcons[i] = false;
+        }
+        playerIcons[4] = true;
     }
 }

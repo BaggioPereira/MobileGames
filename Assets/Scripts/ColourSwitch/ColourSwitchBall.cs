@@ -97,12 +97,13 @@ public class ColourSwitchBall : MonoBehaviour {
         if (collider.tag != currentColour)
         {
             Time.timeScale = 0;
+            Advertisement.Show();
             back.pause = true;
             PlayerPrefs.SetInt("Collection", score);
             //Debug.Log("Saved");
             Destroy(gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-            Advertisement.Show();
+            
         }
 
         if (collider.tag == currentColour)
@@ -127,5 +128,17 @@ public class ColourSwitchBall : MonoBehaviour {
                 //Debug.Log(direction);
                 rb.velocity = new Vector2(direction, 1) * jumpForce;
             }
+    }
+
+    void GetPlayerIcon()
+    {
+        int index = 0;
+        for(int i = 0; i < back.playerIcons.Length; i++)
+        {
+            if (back.playerIcons[i] == true)
+                index = i;
+        }
+
+        gameObject.GetComponent<SpriteRenderer>().sprite = back.playerIconsButton[index].GetComponent<SpriteRenderer>().sprite;
     }
 }
