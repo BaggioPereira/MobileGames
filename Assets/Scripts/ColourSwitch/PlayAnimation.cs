@@ -7,6 +7,6 @@ public class PlayAnimation : MonoBehaviour {
 
     void LoadScene()
     {
-        SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene("CanvasTest", LoadSceneMode.Single);
     }
 }

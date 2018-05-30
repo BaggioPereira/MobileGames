@@ -122,22 +122,42 @@ public class BackButton : MonoBehaviour {
 
     public void Flappy()
     {
-        SceneManager.LoadScene("Colour Switch Flappy", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Colour Switch Flappy", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[4].SetActive(true);
     }
 
     public void Snake()
     {
-        SceneManager.LoadScene("Colour Switch Snake", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Colour Switch Snake", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[5].SetActive(true);
     }
 
     public void Bounce()
     {
-        SceneManager.LoadScene("Colour Switch Bounce", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Colour Switch Bounce", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[6].SetActive(true);
     }
 
     public void PingPong()
     {
-        SceneManager.LoadScene("Colour Switch PingPong", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Colour Switch PingPong", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[7].SetActive(true);
     }
 
     public void Shop()

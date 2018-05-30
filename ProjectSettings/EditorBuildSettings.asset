@@ -9,23 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Logo.unity
     guid: 24dc1f1f65f282343bf2c821114afaaa
   - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch Menu.unity
-    guid: b78436aceda95674d99c8f31eef13cd8
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Game Select.unity
-    guid: b0ac165670f0cfa44a93a6a2e390c484
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch.unity
-    guid: 1a61b801091f4a242a73b2e5613ed25d
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch Flappy.unity
-    guid: 81577802921c69c4ab0721b8e9555902
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch Snake.unity
-    guid: 799eabb893853384d828d68d4553e774
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch Bounce.unity
-    guid: b336211aa3e36f9408704e587a9251f5
-  - enabled: 1
-    path: Assets/Scenes/ColourSwitch/Colour Switch PingPong.unity
-    guid: dc7ca59bb1afb1148963819f332bc7c8
+    path: Assets/Scenes/ColourSwitch/CanvasTest.unity
+    guid: 33d6752403aa9544aa966df857c560d0
