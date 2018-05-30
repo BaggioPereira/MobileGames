@@ -18,7 +18,7 @@ public class BackButton : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-		DontDestroyOnLoad(this.gameObject);
+        //playerIcons[0] = true;
 	}
 	
 	// Update is called once per frame
