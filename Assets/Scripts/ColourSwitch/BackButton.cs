@@ -13,12 +13,15 @@ public class BackButton : MonoBehaviour {
     public GameObject[] playerIconsButton;
     public bool[] playerIcons;
 
+    public GameObject[] scenes;
+
     float timeScaleSetting;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        //playerIcons[0] = true;
+        if (playerIcons.Length > 1)
+            playerIcons[0] = true;
 	}
 	
 	// Update is called once per frame
@@ -61,40 +64,60 @@ public class BackButton : MonoBehaviour {
     //Back button commands
     public void Back()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
-        {
-            if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
-            {
-                pausePanel.SetActive(true);
-                pause = !pause;
-                timeScaleSetting = Time.timeScale;
-                Time.timeScale = 0;
-            }
-        }
+        //string sceneName = SceneManager.GetActiveScene().name;
+        //if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
+        //{
+        //    if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+        //    {
+        //        pausePanel.SetActive(true);
+        //        pause = !pause;
+        //        timeScaleSetting = Time.timeScale;
+        //        Time.timeScale = 0;
+        //    }
+        //}
 
-        else if(sceneName == "Game Select")
-        {
-            SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
-        }
+        //else if(sceneName == "Game Select")
+        //{
+        //    SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+        //}
 
-        else if (shopPanel)
+        if (shopPanel)
         {
             if (shopPanel.activeSelf == true)
             {
                 shopPanel.SetActive(false);
             }
         }
+
+        if(scenes[2].active == true)
+        {
+            for (int i = 0; i < scenes.Length; i++)
+            {
+                scenes[i].SetActive(false);
+            }
+            scenes[0].SetActive(true);
+            scenes[1].SetActive(true);
+        }
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("Game Select", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Game Select", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[2].SetActive(true);
     }
 
     public void Classic()
     {
-        SceneManager.LoadScene("Colour Switch", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Colour Switch", LoadSceneMode.Single);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+        }
+        scenes[3].SetActive(true);
     }
 
     public void Flappy()

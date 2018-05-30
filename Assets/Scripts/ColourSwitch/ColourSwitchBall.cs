@@ -49,6 +49,7 @@ public class ColourSwitchBall : MonoBehaviour {
         score = 0;
         text.text = score.ToString();
         width = Screen.width;
+        GetPlayerIcon();
         //Debug.Log(PlayerPrefs.GetInt("Collection"));
     }
 
@@ -139,6 +140,6 @@ public class ColourSwitchBall : MonoBehaviour {
                 index = i;
         }
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = back.playerIconsButton[index].GetComponent<SpriteRenderer>().sprite;
+        gameObject.GetComponent<SpriteRenderer>().sprite = back.playerIconsButton[index].GetComponent<Image>().sprite;
     }
 }

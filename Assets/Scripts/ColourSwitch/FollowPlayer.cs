@@ -18,12 +18,9 @@ public class FollowPlayer : MonoBehaviour {
 	void Update ()
     {
         pastObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        if (GameObject.Find("Player") != null)
+        if (player.position.y > transform.position.y)
         {
-            if (player.position.y > transform.position.y)
-            {
-                transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
-            }
+            transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
         }
 
         for(int i = 0; i < pastObstacles.Length; i++)
