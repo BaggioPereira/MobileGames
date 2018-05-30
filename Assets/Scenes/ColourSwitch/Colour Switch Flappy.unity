@@ -907,26 +907,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114663175245792012, guid: 92b93abf22620e74c9de5bbb3e8eecf8,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114663175245792012, guid: 92b93abf22620e74c9de5bbb3e8eecf8,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714773014309116, guid: 92b93abf22620e74c9de5bbb3e8eecf8,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114714773014309116, guid: 92b93abf22620e74c9de5bbb3e8eecf8,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114967869642546090, guid: 92b93abf22620e74c9de5bbb3e8eecf8,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -7863,11 +7843,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4475652580509894, guid: 30a564190f3548a4687cb76d029b2605, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4475652580509894, guid: 30a564190f3548a4687cb76d029b2605, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 212806724410772860, guid: 30a564190f3548a4687cb76d029b2605,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c03b6d21f519942e984a9dcf2f50abde,
+        type: 3}
+    - target: {fileID: 58486724296665286, guid: 30a564190f3548a4687cb76d029b2605,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30a564190f3548a4687cb76d029b2605, type: 2}

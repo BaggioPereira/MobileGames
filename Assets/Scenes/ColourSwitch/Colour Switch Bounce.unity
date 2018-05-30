@@ -319,7 +319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1753095741538316, guid: 302ef895785c61b45a9539501a5b0f27, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1988336322920542, guid: 302ef895785c61b45a9539501a5b0f27, type: 2}
       propertyPath: m_IsActive
@@ -390,7 +390,7 @@ Prefab:
     - target: {fileID: 50525633519131734, guid: 800636148b7d204488b68154ac3113b4,
         type: 2}
       propertyPath: m_GravityScale
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1416871522616356, guid: 800636148b7d204488b68154ac3113b4, type: 2}
       propertyPath: m_IsActive
@@ -398,11 +398,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4225733272629322, guid: 800636148b7d204488b68154ac3113b4, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4225733272629322, guid: 800636148b7d204488b68154ac3113b4, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 50525633519131734, guid: 800636148b7d204488b68154ac3113b4,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a1c7dbdc5e9c2f342ba230e90cc01f94, type: 2}
+    - target: {fileID: 212655282601718774, guid: 800636148b7d204488b68154ac3113b4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c03b6d21f519942e984a9dcf2f50abde,
+        type: 3}
+    - target: {fileID: 58548888957010258, guid: 800636148b7d204488b68154ac3113b4,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114118556596859972, guid: 800636148b7d204488b68154ac3113b4, type: 2}
