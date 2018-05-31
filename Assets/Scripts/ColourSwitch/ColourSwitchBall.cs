@@ -45,12 +45,12 @@ public class ColourSwitchBall : MonoBehaviour {
         Advertisement.Initialize(gameID);
         back = FindObjectOfType<BackButton>();
         //Debug.Log("Found");
-        //score = PlayerPrefs.GetInt("Collection");
-        score = 0;
+        score = PlayerPrefs.GetInt("Collection");
+        score = 4000;
         text.text = score.ToString();
         width = Screen.width;
         GetPlayerIcon();
-        //Debug.Log(PlayerPrefs.GetInt("Collection"));
+        Debug.Log(PlayerPrefs.GetInt("Collection"));
     }
 
     // Update is called once per frame

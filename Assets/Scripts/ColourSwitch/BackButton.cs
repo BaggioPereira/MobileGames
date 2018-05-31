@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BackButton : MonoBehaviour {
 
     [HideInInspector]
     public bool pause = false;
-    public GameObject pausePanel, gameOverPanel, shopPanel;
+    public GameObject overlayPortrait, overlayLandscape, pausePanelPortrait, pausePanelLandscape, gameOverPanelPortrait, gameOverPanelLandscape, shopPanel;
 
     //[HideInInspector]
     public GameObject[] playerIconsButton;
@@ -17,12 +18,16 @@ public class BackButton : MonoBehaviour {
 
     float timeScaleSetting;
 
+    public TextMeshProUGUI col;
+
     // Use this for initialization
     void Start()
     {
         if (playerIcons.Length > 1)
             playerIcons[0] = true;
-	}
+        col.text = PlayerPrefs.GetInt("Collection").ToString();
+        PlayerPrefsX.SetBool("Square", false);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -46,7 +51,7 @@ public class BackButton : MonoBehaviour {
             {
                 if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
                 {
-                    pausePanel.SetActive(true);
+                    pausePanelPortrait.SetActive(true);
                     pause = !pause;
                     timeScaleSetting = Time.timeScale;
                     Time.timeScale = 0;
@@ -56,7 +61,7 @@ public class BackButton : MonoBehaviour {
 
         else if(pause && GameObject.FindGameObjectWithTag("Player") == null)
         {
-            gameOverPanel.SetActive(true);
+            gameOverPanelPortrait.SetActive(true);
         }
 	}
 
@@ -81,22 +86,39 @@ public class BackButton : MonoBehaviour {
         //    SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
         //}
 
+        for(int i = 0; i < scenes.Length; i++)
+        {
+            if (scenes[i].name == "GameSelectCanvas")
+            {
+                for (int j = 0; j < scenes.Length; j++)
+                {
+                    scenes[j].SetActive(false);
+                    if (scenes[j].name == "MenuCanvas")
+                        scenes[j].SetActive(true);
+                    if (scenes[j].name == "GOCanvas")
+                        scenes[j].SetActive(true);
+                }
+            }
+
+            //if(scenes[i].name == "ColourSwitchCanvas" || scenes[i].name == "BounceCanvas" || scenes[i].name == "PingPongCanvas")
+            //{
+            //    overlayPortrait.SetActive(true);
+            //    overlayLandscape.SetActive(false);
+            //}
+
+            //else if (scenes[i].name == "SnakeCanvas" || scenes[i].name == "FlappyCanvas")
+            //{
+            //    overlayPortrait.SetActive(false);
+            //    overlayLandscape.SetActive(true);
+            //}
+        }
+
         if (shopPanel)
         {
             if (shopPanel.activeSelf == true)
             {
                 shopPanel.SetActive(false);
             }
-        }
-
-        if(scenes[2].active == true)
-        {
-            for (int i = 0; i < scenes.Length; i++)
-            {
-                scenes[i].SetActive(false);
-            }
-            scenes[0].SetActive(true);
-            scenes[1].SetActive(true);
         }
     }
 
@@ -106,8 +128,9 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "GameSelectCanvas")
+                scenes[i].SetActive(true);
         }
-        scenes[2].SetActive(true);
     }
 
     public void Classic()
@@ -116,8 +139,12 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "ColourSwitchCanvas")
+                scenes[i].SetActive(true);
+
+            overlayPortrait.SetActive(true);
+            overlayLandscape.SetActive(false);
         }
-        scenes[3].SetActive(true);
     }
 
     public void Flappy()
@@ -126,8 +153,12 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "FlappyCanvas")
+                scenes[i].SetActive(true);
+
+            overlayPortrait.SetActive(false);
+            overlayLandscape.SetActive(true);
         }
-        scenes[4].SetActive(true);
     }
 
     public void Snake()
@@ -136,8 +167,9 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "SnakeCanvas")
+                scenes[i].SetActive(true);
         }
-        scenes[5].SetActive(true);
     }
 
     public void Bounce()
@@ -146,8 +178,9 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "BounceCanvas")
+                scenes[i].SetActive(true);
         }
-        scenes[6].SetActive(true);
     }
 
     public void PingPong()
@@ -156,8 +189,9 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            if (scenes[i].name == "PingPongCanvas")
+                scenes[i].SetActive(true);
         }
-        scenes[7].SetActive(true);
     }
 
     public void Shop()
@@ -167,7 +201,7 @@ public class BackButton : MonoBehaviour {
 
     public void Resume()
     {
-        pausePanel.SetActive(false);
+        pausePanelPortrait.SetActive(false);
         Time.timeScale = timeScaleSetting;
         Debug.Log(Time.timeScale);
         pause = !pause;
@@ -204,7 +238,22 @@ public class BackButton : MonoBehaviour {
         {
             playerIcons[i] = false;
         }
-        playerIcons[1] = true;
+
+        if (playerIconsButton[1].GetComponent<Locked>().isLocked)
+        {
+            if (PlayerPrefs.GetInt("Collection") >= 200)
+            {
+                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
+                col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[1].GetComponent<Locked>().isLocked = false;
+                playerIcons[1] = true;
+            }
+        }
+
+        else if(!playerIconsButton[1].GetComponent<Locked>().isLocked)
+        {
+            playerIcons[1] = true;
+        }
     }
 
     public void Skull()
