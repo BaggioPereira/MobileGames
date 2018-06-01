@@ -25,8 +25,8 @@ public class BackButton : MonoBehaviour {
     {
         if (playerIcons.Length > 1)
             playerIcons[0] = true;
+
         col.text = PlayerPrefs.GetInt("Collection").ToString();
-        PlayerPrefsX.SetBool("Square", false);
     }
 	
 	// Update is called once per frame
@@ -262,7 +262,22 @@ public class BackButton : MonoBehaviour {
         {
             playerIcons[i] = false;
         }
-        playerIcons[2] = true;
+
+        if (playerIconsButton[2].GetComponent<Locked>().isLocked)
+        {
+            if (PlayerPrefs.GetInt("Collection") >= 200)
+            {
+                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
+                col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[2].GetComponent<Locked>().isLocked = false;
+                playerIcons[2] = true;
+            }
+        }
+
+        else if (!playerIconsButton[2].GetComponent<Locked>().isLocked)
+        {
+            playerIcons[2] = true;
+        }
     }
 
     public void Shield()
@@ -271,7 +286,22 @@ public class BackButton : MonoBehaviour {
         {
             playerIcons[i] = false;
         }
-        playerIcons[3] = true;
+
+        if (playerIconsButton[3].GetComponent<Locked>().isLocked)
+        {
+            if (PlayerPrefs.GetInt("Collection") >= 200)
+            {
+                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
+                col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[3].GetComponent<Locked>().isLocked = false;
+                playerIcons[3] = true;
+            }
+        }
+
+        else if (!playerIconsButton[3].GetComponent<Locked>().isLocked)
+        {
+            playerIcons[3] = true;
+        }
     }
 
     public void Flame()
@@ -280,6 +310,34 @@ public class BackButton : MonoBehaviour {
         {
             playerIcons[i] = false;
         }
-        playerIcons[4] = true;
+
+        if (playerIconsButton[4].GetComponent<Locked>().isLocked)
+        {
+            if (PlayerPrefs.GetInt("Collection") >= 200)
+            {
+                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
+                col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[4].GetComponent<Locked>().isLocked = false;
+                playerIconsButton[4].GetComponent<Locked>().Unlock();
+                playerIcons[4] = true;
+            }
+        }
+
+        else if (!playerIconsButton[4].GetComponent<Locked>().isLocked)
+        {
+            playerIcons[4] = true;
+        }
+    }
+
+    public void DeleteAllSavedData()
+    {
+        PlayerPrefs.DeleteAll();
+        col.text = PlayerPrefs.GetInt("Collection").ToString();
+        for(int i = 0; i < playerIconsButton.Length; i++)
+        {
+            playerIconsButton[4].GetComponent<Locked>().isLocked = true;
+            playerIconsButton[4].GetComponent<Locked>().Unlock();
+        }
+        playerIcons[0] = true;
     }
 }

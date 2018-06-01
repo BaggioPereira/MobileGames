@@ -9,18 +9,30 @@ public class Locked : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        if (PlayerPrefsX.GetBool("Square"))
+        if (PlayerPrefs.GetInt(playerIcon.name) == 1)
             isLocked = false;
+        Unlock();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(!isLocked)
+		
+	}
+
+    public void Unlock()
+    {
+        if(!isLocked)
         {
             playerIcon.SetActive(true);
             gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-            PlayerPrefsX.SetBool("Square", true);
+            PlayerPrefs.SetInt(playerIcon.name, 1);
         }
-	}
+
+        else if(isLocked)
+        {
+            playerIcon.SetActive(false);
+            gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        }
+    }
 }

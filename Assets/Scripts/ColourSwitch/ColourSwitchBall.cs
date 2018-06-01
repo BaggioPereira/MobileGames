@@ -140,6 +140,6 @@ public class ColourSwitchBall : MonoBehaviour {
                 index = i;
         }
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = back.playerIconsButton[index].GetComponent<Image>().sprite;
+        gameObject.GetComponent<SpriteRenderer>().sprite = back.playerIconsButton[index].transform.GetChild(0).GetComponent<Image>().sprite;
     }
 }
