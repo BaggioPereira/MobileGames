@@ -24,8 +24,9 @@ public class BackButton : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        if (playerIcons.Length > 1)
-            playerIcons[0] = true;
+        for (int i = 0; i < playerIcons.Length; i++)
+            if (i == PlayerPrefs.GetInt("Icon"))
+                playerIcons[i] = true;
 
         col.text = PlayerPrefs.GetInt("Collection").ToString();
     }
@@ -295,11 +296,15 @@ public class BackButton : MonoBehaviour {
         for(int i = 0; i < playerIconsButton.Length; i++)
         {
             if (playerIconsButton[i].name == "Standard")
+            {
                 playerIcons[i] = true;
+                PlayerPrefs.SetInt("Icon", i);
+            }
             else
             {
                 playerIconsButton[i].GetComponent<Locked>().isLocked = true;
                 playerIconsButton[i].GetComponent<Locked>().Unlock();
+                playerIcons[i] = false;
             }
         }
     }
@@ -316,12 +321,14 @@ public class BackButton : MonoBehaviour {
                 playerIconsButton[i].GetComponent<Locked>().isLocked = false;
                 playerIconsButton[i].GetComponent<Locked>().Unlock();
                 playerIcons[i] = true;
+                PlayerPrefs.SetInt("Icon", i);
             }
         }
 
         else if (!playerIconsButton[i].GetComponent<Locked>().isLocked)
         {
             playerIcons[i] = true;
+            PlayerPrefs.SetInt("Icon", i);
         }
     }
 }

@@ -50,7 +50,6 @@ public class ColourSwitchBall : MonoBehaviour {
         text.text = score.ToString();
         width = Screen.width;
         GetPlayerIcon();
-        Debug.Log(PlayerPrefs.GetInt("Collection"));
     }
 
     // Update is called once per frame
