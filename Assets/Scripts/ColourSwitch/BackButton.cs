@@ -7,19 +7,21 @@ using System;
 
 public class BackButton : MonoBehaviour {
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool pause = false;
     public GameObject overlayPortrait, overlayLandscape, pausePanelPortrait, pausePanelLandscape, gameOverPanelPortrait, gameOverPanelLandscape, shopPanel;
 
     //[HideInInspector]
     public GameObject[] playerIconsButton;
-    public bool[] playerIcons;
+    public bool[] playerIcons, sceneActive;
 
     public GameObject[] scenes;
 
     float timeScaleSetting;
 
     public TextMeshProUGUI col;
+
+    GameObject GameInstance;
 
     // Use this for initialization
     void Start()
@@ -34,85 +36,96 @@ public class BackButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetKeyUp(KeyCode.Escape))
+		//if(Input.GetKeyUp(KeyCode.Escape))
+  //      {
+  //          string sceneName = SceneManager.GetActiveScene().name;
+
+  //          if(sceneName == "Colour Switch Menu")
+  //          {
+  //              Application.Quit();
+  //          }
+
+  //          else if(sceneName == "Game Select")
+  //          {
+  //              SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+  //          }
+
+  //          //Enable pause menu in these scenes
+  //          else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
+  //          {
+  //              if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+  //              {
+  //                  pausePanelPortrait.SetActive(true);
+  //                  pause = !pause;
+  //                  timeScaleSetting = Time.timeScale;
+  //                  Time.timeScale = 0;
+  //              }
+  //          }
+  //      }
+        for(int i = 0; i < sceneActive.Length; i++)
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-
-            if(sceneName == "Colour Switch Menu")
+            if (i == 3 || i == 6 || i == 7)
             {
-                Application.Quit();
-            }
-
-            else if(sceneName == "Game Select")
-            {
-                SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
-            }
-
-            //Enable pause menu in these scenes
-            else if(sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
-            {
-                if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+                if (pause && GameObject.FindGameObjectWithTag("Player") == null)
                 {
-                    pausePanelPortrait.SetActive(true);
-                    pause = !pause;
-                    timeScaleSetting = Time.timeScale;
-                    Time.timeScale = 0;
+                    gameOverPanelPortrait.SetActive(true);
+                }
+            }
+            else if( i == 4 || i == 5)
+            {
+                if (pause && GameObject.FindGameObjectWithTag("Player") == null)
+                {
+                    gameOverPanelLandscape.SetActive(true);
                 }
             }
         }
 
-        else if(pause && GameObject.FindGameObjectWithTag("Player") == null)
-        {
-            gameOverPanelPortrait.SetActive(true);
-        }
-	}
+        
+    }
 
 
     //Back button commands
     public void Back()
     {
-        //string sceneName = SceneManager.GetActiveScene().name;
-        //if (sceneName == "Colour Switch Flappy" || sceneName == "Colour Switch" || sceneName == "Colour Switch Snake" || sceneName == "Colour Switch Bounce" || sceneName == "Colour Switch PingPong")
-        //{
-        //    if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
-        //    {
-        //        pausePanel.SetActive(true);
-        //        pause = !pause;
-        //        timeScaleSetting = Time.timeScale;
-        //        Time.timeScale = 0;
-        //    }
-        //}
-
-        //else if(sceneName == "Game Select")
-        //{
-        //    SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
-        //}
 
         for(int i = 0; i < scenes.Length; i++)
         {
             if (scenes[i].name == "GameSelectCanvas")
             {
-                for (int j = 0; j < scenes.Length; j++)
+                if (sceneActive[2] == true)
                 {
-                    scenes[j].SetActive(false);
-                    if (scenes[j].name == "MenuCanvas")
-                        scenes[j].SetActive(true);
-                    if (scenes[j].name == "GOCanvas")
-                        scenes[j].SetActive(true);
+                    for (int j = 0; j < scenes.Length; j++)
+                    {
+                        scenes[j].SetActive(false);
+                        if (scenes[j].name == "MenuCanvas")
+                            scenes[j].SetActive(true);
+                        if (scenes[j].name == "GOCanvas")
+                            scenes[j].SetActive(true);
+                    }
                 }
             }
+        }
 
-            //if(scenes[i].name == "ColourSwitchCanvas" || scenes[i].name == "BounceCanvas" || scenes[i].name == "PingPongCanvas")
-            //{
-            //    overlayPortrait.SetActive(true);
-            //    overlayLandscape.SetActive(false);
-            //}
+        if (sceneActive[3] == true || sceneActive[6] == true || sceneActive[7] == true)
+        {
+            if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+            {
+                pausePanelPortrait.SetActive(true);
+                pause = !pause;
+                timeScaleSetting = Time.timeScale;
+                Time.timeScale = 0;
+            }
+        }
 
-            //else if (scenes[i].name == "SnakeCanvas" || scenes[i].name == "FlappyCanvas")
-            //{
-            //    overlayPortrait.SetActive(false);
-            //    overlayLandscape.SetActive(true);
-            //}
+        if(sceneActive[4] == true || sceneActive[5] == true)
+        {
+            if (!pause && GameObject.FindGameObjectWithTag("Player") != null)
+            {
+                pausePanelLandscape.SetActive(true);
+                pause = !pause;
+                timeScaleSetting = Time.timeScale;
+                Time.timeScale = 0;
+            }
         }
 
         if (shopPanel)
@@ -130,8 +143,12 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "GameSelectCanvas")
+            {
                 scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
         }
     }
 
@@ -141,9 +158,15 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "ColourSwitchCanvas")
+            {
+                GameInstance = Instantiate(scenes[i], new Vector3(0, -1.75f, 0), Quaternion.identity);
+                GameInstance.SetActive(true);
                 scenes[i].SetActive(true);
-
+                sceneActive[i] = true;
+            }
+            
             overlayPortrait.SetActive(true);
             overlayLandscape.SetActive(false);
         }
@@ -155,8 +178,14 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "FlappyCanvas")
+            {
+                GameInstance = Instantiate(scenes[i], Vector3.zero, Quaternion.identity);
+                GameInstance.SetActive(true);
                 scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
 
             overlayPortrait.SetActive(false);
             overlayLandscape.SetActive(true);
@@ -169,11 +198,18 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "SnakeCanvas")
+            {
+                GameInstance = Instantiate(scenes[i], Vector3.zero, Quaternion.identity);
+                GameInstance.SetActive(true);
                 scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
 
             overlayPortrait.SetActive(false);
             overlayLandscape.SetActive(true);
+            overlayLandscape.transform.localScale = new Vector3(0.047f, 0.047f, 0.047f);
         }
     }
 
@@ -183,8 +219,14 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "BounceCanvas")
+            {
+                GameInstance = Instantiate(scenes[i], new Vector3(0, -1.75f, 0), Quaternion.identity);
+                GameInstance.SetActive(true);
                 scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
 
             overlayPortrait.SetActive(true);
             overlayLandscape.SetActive(false);
@@ -197,8 +239,14 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < scenes.Length; i++)
         {
             scenes[i].SetActive(false);
+            sceneActive[i] = false;
             if (scenes[i].name == "PingPongCanvas")
+            {
+                GameInstance = Instantiate(scenes[i], new Vector3(0, -1.75f, 0), Quaternion.identity);
+                GameInstance.SetActive(true);
                 scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
 
             overlayPortrait.SetActive(true);
             overlayLandscape.SetActive(false);
@@ -212,26 +260,98 @@ public class BackButton : MonoBehaviour {
 
     public void Resume()
     {
-        pausePanelPortrait.SetActive(false);
-        Time.timeScale = timeScaleSetting;
-        Debug.Log(Time.timeScale);
-        pause = !pause;
+        if (overlayPortrait.active == true)
+        {
+            pausePanelPortrait.SetActive(false);
+            Time.timeScale = timeScaleSetting;
+            Debug.Log(Time.timeScale);
+            pause = !pause;
+        }
+
+        else if(overlayLandscape == true)
+        {
+            pausePanelLandscape.SetActive(false);
+            Time.timeScale = timeScaleSetting;
+            Debug.Log(Time.timeScale);
+            pause = !pause;
+        }
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        if (SceneManager.GetActiveScene().name == "Colour Switch Bounce")
-            Time.timeScale = 1;
+        Destroy(GameInstance);
+        pause = !pause;
+
+        for(int i = 0; i < sceneActive.Length; i++)
+        {
+            if(sceneActive[i] == true)
+            {
+                if( i == 3)
+                {
+                    Classic();
+                    gameOverPanelPortrait.SetActive(false);
+                }
+                else if( i == 4)
+                {
+                    Flappy();
+                    gameOverPanelLandscape.SetActive(false);
+                }
+                else if (i == 5)
+                {
+                    Snake();
+                    gameOverPanelLandscape.SetActive(false);
+                }
+                else if (i == 6)
+                {
+                    Bounce();
+                    gameOverPanelPortrait.SetActive(false);
+                }
+                else if (i == 7)
+                {
+                    PingPong();
+                    gameOverPanelPortrait.SetActive(false);
+                }
+            }
+        }
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        //if (SceneManager.GetActiveScene().name == "Colour Switch Bounce")
+        //    Time.timeScale = 1;
     }
 
     public void Quit()
     {
-        if (SceneManager.GetActiveScene().name == "Colour Switch Menu")
-            Application.Quit();
+        pause = !pause;
+        pausePanelPortrait.SetActive(false);
+        pausePanelLandscape.SetActive(false);
+        gameOverPanelPortrait.SetActive(false);
+        gameOverPanelLandscape.SetActive(false);
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            scenes[i].SetActive(false);
+            sceneActive[i] = false;
+            if (scenes[i].name == "MenuCanvas")
+            {
+                scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
+            if (scenes[i].name == "GOCanvas")
+            {
+                scenes[i].SetActive(true);
+                sceneActive[i] = true;
+            }
+        }
+        Destroy(GameInstance);
+        overlayPortrait.transform.parent.position = Vector3.zero;
+        overlayLandscape.transform.localScale = new Vector3(0.009130585f, 0.009130585f, 0.009130585f);
+        overlayPortrait.SetActive(false);
+        overlayLandscape.SetActive(false);
+        Time.timeScale = 1;
+        //if (SceneManager.GetActiveScene().name == "Colour Switch Menu")
+        //    Application.Quit();
 
-        else
-            SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
+        //else
+        //    SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
     }
 
     public void Standard()
