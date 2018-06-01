@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class BackButton : MonoBehaviour {
 
@@ -169,6 +170,9 @@ public class BackButton : MonoBehaviour {
             scenes[i].SetActive(false);
             if (scenes[i].name == "SnakeCanvas")
                 scenes[i].SetActive(true);
+
+            overlayPortrait.SetActive(false);
+            overlayLandscape.SetActive(true);
         }
     }
 
@@ -180,6 +184,9 @@ public class BackButton : MonoBehaviour {
             scenes[i].SetActive(false);
             if (scenes[i].name == "BounceCanvas")
                 scenes[i].SetActive(true);
+
+            overlayPortrait.SetActive(true);
+            overlayLandscape.SetActive(false);
         }
     }
 
@@ -191,6 +198,9 @@ public class BackButton : MonoBehaviour {
             scenes[i].SetActive(false);
             if (scenes[i].name == "PingPongCanvas")
                 scenes[i].SetActive(true);
+
+            overlayPortrait.SetActive(true);
+            overlayLandscape.SetActive(false);
         }
     }
 
@@ -227,32 +237,21 @@ public class BackButton : MonoBehaviour {
     {
         for(int i = 0; i < playerIcons.Length; i++)
         {
-            playerIcons[i] = false;
+            if (playerIconsButton[i].name == "Standard")
+                playerIcons[i] = true;
+            else
+                playerIcons[i] = false;
         }
-        playerIcons[0] = true;
     }
 
     public void Square()
     {
         for (int i = 0; i < playerIcons.Length; i++)
         {
-            playerIcons[i] = false;
-        }
-
-        if (playerIconsButton[1].GetComponent<Locked>().isLocked)
-        {
-            if (PlayerPrefs.GetInt("Collection") >= 200)
-            {
-                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
-                col.text = PlayerPrefs.GetInt("Collection").ToString();
-                playerIconsButton[1].GetComponent<Locked>().isLocked = false;
-                playerIcons[1] = true;
-            }
-        }
-
-        else if(!playerIconsButton[1].GetComponent<Locked>().isLocked)
-        {
-            playerIcons[1] = true;
+            if (playerIconsButton[i].name == "SquareLock")
+                UnlockIcon(i);
+            else
+                playerIcons[i] = false;
         }
     }
 
@@ -260,23 +259,10 @@ public class BackButton : MonoBehaviour {
     {
         for (int i = 0; i < playerIcons.Length; i++)
         {
-            playerIcons[i] = false;
-        }
-
-        if (playerIconsButton[2].GetComponent<Locked>().isLocked)
-        {
-            if (PlayerPrefs.GetInt("Collection") >= 200)
-            {
-                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
-                col.text = PlayerPrefs.GetInt("Collection").ToString();
-                playerIconsButton[2].GetComponent<Locked>().isLocked = false;
-                playerIcons[2] = true;
-            }
-        }
-
-        else if (!playerIconsButton[2].GetComponent<Locked>().isLocked)
-        {
-            playerIcons[2] = true;
+            if (playerIconsButton[i].name == "SkullLock")
+                UnlockIcon(i);
+            else
+                playerIcons[i] = false;
         }
     }
 
@@ -284,23 +270,10 @@ public class BackButton : MonoBehaviour {
     {
         for (int i = 0; i < playerIcons.Length; i++)
         {
-            playerIcons[i] = false;
-        }
-
-        if (playerIconsButton[3].GetComponent<Locked>().isLocked)
-        {
-            if (PlayerPrefs.GetInt("Collection") >= 200)
-            {
-                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
-                col.text = PlayerPrefs.GetInt("Collection").ToString();
-                playerIconsButton[3].GetComponent<Locked>().isLocked = false;
-                playerIcons[3] = true;
-            }
-        }
-
-        else if (!playerIconsButton[3].GetComponent<Locked>().isLocked)
-        {
-            playerIcons[3] = true;
+            if (playerIconsButton[i].name == "ShieldLock")
+                UnlockIcon(i);
+            else
+                playerIcons[i] = false;
         }
     }
 
@@ -308,24 +281,10 @@ public class BackButton : MonoBehaviour {
     {
         for (int i = 0; i < playerIcons.Length; i++)
         {
-            playerIcons[i] = false;
-        }
-
-        if (playerIconsButton[4].GetComponent<Locked>().isLocked)
-        {
-            if (PlayerPrefs.GetInt("Collection") >= 200)
-            {
-                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - 200);
-                col.text = PlayerPrefs.GetInt("Collection").ToString();
-                playerIconsButton[4].GetComponent<Locked>().isLocked = false;
-                playerIconsButton[4].GetComponent<Locked>().Unlock();
-                playerIcons[4] = true;
-            }
-        }
-
-        else if (!playerIconsButton[4].GetComponent<Locked>().isLocked)
-        {
-            playerIcons[4] = true;
+            if (playerIconsButton[i].name == "FlameLock")
+                UnlockIcon(i);
+            else
+                playerIcons[i] = false;
         }
     }
 
@@ -335,9 +294,34 @@ public class BackButton : MonoBehaviour {
         col.text = PlayerPrefs.GetInt("Collection").ToString();
         for(int i = 0; i < playerIconsButton.Length; i++)
         {
-            playerIconsButton[4].GetComponent<Locked>().isLocked = true;
-            playerIconsButton[4].GetComponent<Locked>().Unlock();
+            if (playerIconsButton[i].name == "Standard")
+                playerIcons[i] = true;
+            else
+            {
+                playerIconsButton[i].GetComponent<Locked>().isLocked = true;
+                playerIconsButton[i].GetComponent<Locked>().Unlock();
+            }
         }
-        playerIcons[0] = true;
+    }
+    
+    void UnlockIcon(int i)
+    {
+        if (playerIconsButton[i].GetComponent<Locked>().isLocked)
+        {
+            if (PlayerPrefs.GetInt("Collection") >= Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text))
+            {
+                Debug.Log(Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text));
+                PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text));
+                col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[i].GetComponent<Locked>().isLocked = false;
+                playerIconsButton[i].GetComponent<Locked>().Unlock();
+                playerIcons[i] = true;
+            }
+        }
+
+        else if (!playerIconsButton[i].GetComponent<Locked>().isLocked)
+        {
+            playerIcons[i] = true;
+        }
     }
 }
