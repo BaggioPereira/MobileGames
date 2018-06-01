@@ -341,6 +341,7 @@ public class BackButton : MonoBehaviour {
                 sceneActive[i] = true;
             }
         }
+        Screen.orientation = UnityEngine.ScreenOrientation.Portrait;
         Destroy(GameInstance);
         overlayPortrait.transform.parent.position = Vector3.zero;
         overlayLandscape.transform.localScale = new Vector3(0.009130585f, 0.009130585f, 0.009130585f);
