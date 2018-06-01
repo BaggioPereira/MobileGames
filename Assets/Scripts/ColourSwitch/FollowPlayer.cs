@@ -5,13 +5,14 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
     public Transform player;
-
+    public GameObject canvas;
     GameObject[] pastObstacles;
 
 	// Use this for initialization
 	void Start ()
     {
         pastObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        canvas = GameObject.Find("OverlayGO");
 	}
 	
 	// Update is called once per frame
@@ -23,6 +24,7 @@ public class FollowPlayer : MonoBehaviour {
             if (player.position.y > transform.position.y)
             {
                 transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
+                canvas.transform.position = new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z);
             }
         }
 

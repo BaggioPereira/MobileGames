@@ -47,6 +47,7 @@ public class ColourSwitchBall : MonoBehaviour {
         //Debug.Log("Found");
         score = PlayerPrefs.GetInt("Collection");
         score = 4000;
+        text =  FindObjectOfType<TextMeshProUGUI>();
         text.text = score.ToString();
         width = Screen.width;
         GetPlayerIcon();

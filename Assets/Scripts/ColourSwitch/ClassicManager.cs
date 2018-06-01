@@ -20,7 +20,7 @@ public class ClassicManager : MonoBehaviour {
             obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
             Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 7.5f);
             int choice = Random.Range(0, obstaclePrefabs.Length);
-            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
+            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity).transform.parent = gameObject.transform.parent;
         }
         InvokeRepeating("CreateNewObstacle", 0, 1);
     }
@@ -32,7 +32,7 @@ public class ClassicManager : MonoBehaviour {
         {
             Vector2 lastObstacle = new Vector2(0, obstacles[obstacles.Length - 1].transform.position.y + 7.5f);
             int choice = Random.Range(0, obstaclePrefabs.Length);
-            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity);
+            Instantiate(obstaclePrefabs[choice], lastObstacle, Quaternion.identity).transform.parent = gameObject.transform.parent;
         }
     }
 }

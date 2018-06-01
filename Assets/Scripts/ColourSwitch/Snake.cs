@@ -49,7 +49,8 @@ public class Snake : MonoBehaviour {
         collectionCount = PlayerPrefs.GetInt("Collection");
         if(Application.isEditor)
             collectionCount = 0;
-        text.text = collectionCount.ToString();
+        text = FindObjectOfType<TextMeshProUGUI>();
+        text.text = score.ToString();
         Debug.Log(PlayerPrefs.GetInt("Collection"));
         InvokeRepeating("Move", 0.3f, 0.3f);
 	}

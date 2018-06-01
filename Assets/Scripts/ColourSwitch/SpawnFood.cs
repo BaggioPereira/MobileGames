@@ -69,6 +69,7 @@ public class SpawnFood : MonoBehaviour
                 food.tag = "Pink";
             if (colour == 3)
                 food.tag = "Magenta";
+            food.transform.parent = transform.parent;
         }
 
         if (foodCounter < maxFood)
@@ -92,6 +93,7 @@ public class SpawnFood : MonoBehaviour
                 GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
                 food.GetComponent<Renderer>().material.color = foodColour[0];
                 food.tag = "Cyan";
+                food.transform.parent = transform.parent;
             }
 
             else if (yellow == 0)
@@ -113,6 +115,7 @@ public class SpawnFood : MonoBehaviour
                 GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
                 food.GetComponent<Renderer>().material.color = foodColour[1];
                 food.tag = "Yellow";
+                food.transform.parent = transform.parent;
             }
 
             else if (pink == 0)
@@ -134,6 +137,7 @@ public class SpawnFood : MonoBehaviour
                 GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
                 food.GetComponent<Renderer>().material.color = foodColour[2];
                 food.tag = "Pink";
+                food.transform.parent = transform.parent;
             }
 
             else if (magenta == 0)
@@ -155,6 +159,7 @@ public class SpawnFood : MonoBehaviour
                 GameObject food = Instantiate(foodPrefab, location, Quaternion.identity); // default rotation
                 food.GetComponent<Renderer>().material.color = foodColour[3];
                 food.tag = "Magenta";
+                food.transform.parent = transform.parent;
             }
         }
     }

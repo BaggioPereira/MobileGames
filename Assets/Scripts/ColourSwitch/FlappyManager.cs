@@ -20,7 +20,7 @@ public class FlappyManager : MonoBehaviour {
         {
             obstacles = GameObject.FindGameObjectsWithTag("FlappyLines");
             Vector2 lastObstacle = new Vector2(obstacles[0].transform.position.x + 5f, 0);
-            Instantiate(obstacle, lastObstacle, Quaternion.Euler(0, 0, 90));
+            Instantiate(obstacle, lastObstacle, Quaternion.Euler(0, 0, 90)).transform.parent = gameObject.transform.parent; ;
         }
         InvokeRepeating("CreateNewObstacle",0,1);
 	}
@@ -31,7 +31,7 @@ public class FlappyManager : MonoBehaviour {
         if (obstacles.Length < maxObstacles)
         {
             Vector2 lastObstacle = new Vector2(obstacles[obstacles.Length - 1].transform.position.x + 5f, 0);
-            Instantiate(obstacle, lastObstacle, Quaternion.Euler(0, 0, 90));
+            Instantiate(obstacle, lastObstacle, Quaternion.Euler(0, 0, 90)).transform.parent = gameObject.transform.parent; ;
         }
     }
 }
