@@ -5,8 +5,7 @@ using UnityEngine;
 public class ClassicManager : MonoBehaviour {
 
     public GameObject[] obstaclePrefabs;
-    GameObject[] obstacles, changers;
-    int max = 0;
+    GameObject[] obstacles;
     public int maxObstacles;
     // Use this for initialization
     void Start ()
