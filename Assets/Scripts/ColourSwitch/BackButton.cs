@@ -29,7 +29,8 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < playerIcons.Length; i++)
             if (i == PlayerPrefs.GetInt("Icon"))
                 playerIcons[i] = true;
-
+        sceneActive[0] = true;
+        sceneActive[1] = true;
         col.text = PlayerPrefs.GetInt("Collection").ToString();
     }
 	
@@ -98,11 +99,18 @@ public class BackButton : MonoBehaviour {
                     {
                         scenes[j].SetActive(false);
                         if (scenes[j].name == "MenuCanvas")
+                        {
                             scenes[j].SetActive(true);
+                            sceneActive[j] = true;
+                        }
                         if (scenes[j].name == "GOCanvas")
+                        {
                             scenes[j].SetActive(true);
+                            sceneActive[j] = true;
+                        }
                     }
-                }
+                    sceneActive[2] = false;
+                }        
             }
         }
 
@@ -256,6 +264,7 @@ public class BackButton : MonoBehaviour {
     public void Shop()
     {
         shopPanel.SetActive(true);
+        col.text = PlayerPrefs.GetInt("Collection").ToString();
     }
 
     public void Resume()
@@ -355,6 +364,17 @@ public class BackButton : MonoBehaviour {
         //    SceneManager.LoadScene("Colour Switch Menu", LoadSceneMode.Single);
     }
 
+    public void QuitGame()
+    {
+        for(int i = 0; i < scenes.Length; i++)
+        {
+            if(scenes[i].name == "MenuCanvas" && (sceneActive[i] == true))
+            {
+                Application.Quit();
+            }
+        }
+    }
+
     public void Standard()
     {
         for(int i = 0; i < playerIcons.Length; i++)
@@ -371,7 +391,9 @@ public class BackButton : MonoBehaviour {
         for (int i = 0; i < playerIcons.Length; i++)
         {
             if (playerIconsButton[i].name == "SquareLock")
+            {
                 UnlockIcon(i);
+            }
             else
                 playerIcons[i] = false;
         }
@@ -425,6 +447,7 @@ public class BackButton : MonoBehaviour {
             {
                 playerIconsButton[i].GetComponent<Locked>().isLocked = true;
                 playerIconsButton[i].GetComponent<Locked>().Unlock();
+                playerIconsButton[i].transform.Find("PointsNeeded").gameObject.SetActive(true);
                 playerIcons[i] = false;
             }
         }
@@ -436,9 +459,10 @@ public class BackButton : MonoBehaviour {
         {
             if (PlayerPrefs.GetInt("Collection") >= Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text))
             {
-                Debug.Log(Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text));
+                //Debug.Log(Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text));
                 PlayerPrefs.SetInt("Collection", PlayerPrefs.GetInt("Collection") - Convert.ToInt32(playerIconsButton[i].transform.Find("PointsNeeded").GetComponent<TextMeshProUGUI>().text));
                 col.text = PlayerPrefs.GetInt("Collection").ToString();
+                playerIconsButton[i].transform.Find("PointsNeeded").gameObject.SetActive(false);
                 playerIconsButton[i].GetComponent<Locked>().isLocked = false;
                 playerIconsButton[i].GetComponent<Locked>().Unlock();
                 playerIcons[i] = true;
