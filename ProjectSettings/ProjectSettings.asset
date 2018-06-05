@@ -125,7 +125,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.01
+  bundleVersion: 1.04
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -150,11 +150,11 @@ PlayerSettings:
   androidSupportedAspectRatio: 0
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.ReadySoftware.ColourSwatch
+    Android: com.ReadySoftware.ColourSwatchs
     iOS: com.ReadySoftware.ColourSwitch
   buildNumber:
     iOS: 101
-  AndroidBundleVersionCode: 101
+  AndroidBundleVersionCode: 104
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -229,7 +229,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/Users/baggi/Documents/GitHub/MobileGames/TestAndroid/ColourSwatch.keystore
-  AndroidKeyaliasName: colour swatch
+  AndroidKeyaliasName: colourswatch
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   AndroidEnableTango: 0
